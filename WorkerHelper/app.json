@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/offer/offer",
+    "pages/jobInfo/jobInfo",
+    "pages/post/post",
+    "pages/mine/mine",
+    "pages/corp/corp",
+    "pages/detail/detail",
+    "pages/about/about",
+    "pages/ads/ads",
+    "pages/jump/jump"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "Worker Helper",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#04be02",
+    "borderStyle": "white",
+    "color": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/info.png",
+        "selectedIconPath": "image/info-active.png",
+        "text": "岗位信息"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/exp.png",
+        "selectedIconPath": "image/exp-active.png",
+        "text": "面试经验"
+      },
+      {
+        "pagePath": "pages/offer/offer",
+        "iconPath": "image/news.png",
+        "selectedIconPath": "image/news-active.png",
+        "text": "我要爆料"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/me.png",
+        "selectedIconPath": "image/me-active.png",
+        "text": "我"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

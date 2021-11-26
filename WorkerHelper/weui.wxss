@@ -1038,3 +1038,17 @@ icon {
   color: #09BB07;
   white-space: nowrap;
 }
+.container {
+  box-sizing:border-box;
+  padding:20px;
+  } 
+  .previewimg{
+  float:left;
+  width:45%;
+  height:200px;
+  margin:2%;
+  }
+  .previewimg image{
+  width:100%;
+  height:100%;
+  }

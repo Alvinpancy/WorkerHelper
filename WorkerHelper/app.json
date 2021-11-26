@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/offer/offer",
+    "pages/search/search",
     "pages/jobInfo/jobInfo",
     "pages/post/post",
     "pages/mine/mine",
@@ -13,37 +13,43 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "Worker Helper",
+    "navigationBarTitleText": "iWorking",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#04be02",
+    "selectedColor": "#000000",
     "borderStyle": "white",
     "color": "#000000",
     "list": [
       {
-        "pagePath": "pages/jobInfo/jobInfo",
-        "iconPath": "image/info.png",
-        "selectedIconPath": "image/info-active.png",
-        "text": "岗位信息"
-      },
-      {
-        "pagePath": "pages/jobInfo/jobInfo",
-        "iconPath": "image/exp.png",
-        "selectedIconPath": "image/exp-active.png",
-        "text": "面试经验"
-      },
-      {
-        "pagePath": "pages/offer/offer",
-        "iconPath": "image/news.png",
-        "selectedIconPath": "image/news-active.png",
-        "text": "我要爆料"
-      },
-      {
         "pagePath": "pages/mine/mine",
-        "iconPath": "image/me.png",
-        "selectedIconPath": "image/me-active.png",
+        "iconPath": "image/me.jpg",
+        "selectedIconPath": "image/me-active.jpg",
         "text": "我"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/school-recruitment.jpg",
+        "selectedIconPath": "image/school-recruitment-active.jpg",
+        "text": "校招"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/social-recuitment.jpg",
+        "selectedIconPath": "image/social-recuitment-active.jpg",
+        "text": "社招"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "iconPath": "image/search.jpg",
+        "selectedIconPath": "image/search-active.jpg",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/experiment.jpg",
+        "selectedIconPath": "image/experiment-active.jpg",
+        "text": "面试经验"
       }
     ]
   },

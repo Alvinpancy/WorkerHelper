@@ -24,9 +24,8 @@ page {
 .my-top-style {
   font-weight: bold;
   color: white;
-  background: dodgerblue;
+  background: rgb(0, 0, 0);
   border: none;
-  box-shadow: 0 2px 2px gray;
   padding: 0 10px 0 10px;
 }
 .weui-search-bar{

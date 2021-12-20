@@ -1,5 +1,5 @@
 *这是WorkerHelper的小程序源码*   
-### WorkerHelper是什么？
+### iWorking是什么？
 
 匿名的工作岗位交流平台，帮助求职者了解岗位内幕
 
@@ -15,6 +15,4 @@ PM：PP Zhang
 
 小程序开发者联系邮箱：panchyromance@gmail.com
 
-### 致谢：
-WorkerHepler的前端开发参考了一些GitHub的优秀项目，特别感谢OfferShow的开源
 

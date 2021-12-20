@@ -34,16 +34,16 @@
         "text": "校招"
       },
       {
-        "pagePath": "pages/jobInfo/jobInfo",
-        "iconPath": "image/social-recuitment.jpg",
-        "selectedIconPath": "image/social-recuitment-active.jpg",
-        "text": "社招"
-      },
-      {
         "pagePath": "pages/search/search",
         "iconPath": "image/search.jpg",
         "selectedIconPath": "image/search-active.jpg",
         "text": "搜索"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/social-recuitment.jpg",
+        "selectedIconPath": "image/social-recuitment-active.jpg",
+        "text": "社招"
       },
       {
         "pagePath": "pages/jobInfo/jobInfo",

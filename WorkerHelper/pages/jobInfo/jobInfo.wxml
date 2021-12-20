@@ -1,30 +1,101 @@
-<view class="weui-flex my-top my-top-fixed my-top-style">
-  <view class="weui-flex__item">
-    <view class="">岗位信息</view>
-  </view>
+<view>
+    <i-cell-group>
+    <i-cell title="基本用法">
+        <i-rate 
+            bind:change="onChange1" 
+            value="{{starIndex1}}">
+        </i-rate>
+    </i-cell>
+    <i-cell title="自定义星星个数">
+        <i-rate 
+            count="{{10}}"
+            value="{{starIndex5}}">
+        </i-rate>
+    </i-cell>
+    <i-cell title="自定义星星大小">
+        <i-rate 
+            bind:change="onChange2" 
+            value="{{starIndex2}}" 
+            size="32">
+        </i-rate>
+    </i-cell>
+    <i-cell title="自定义文字说明">
+        <i-rate 
+            bind:change="onChange2" 
+            value="{{starIndex2}}">
+            {{starIndex2}}星
+        </i-rate>
+    </i-cell>
+     <i-cell title="手势touch选择星">
+        <i-rate 
+            bind:change="onChange3" 
+            value="{{starIndex3}}">
+            {{starIndex3}}星
+        </i-rate>
+    </i-cell>
+    <i-cell title="禁用点击和手势选择星">
+        <i-rate 
+            disabled="{{true}}"
+            value="{{starIndex4}}">
+            {{starIndex4}}星
+        </i-rate>
+    </i-cell>
+</i-cell-group>
+
 </view>
-<view class="my-noscroll">
-  <!--navigator class="weui-panel weui-panel_access" wx:for="{{list}}" wx:key="{{*this}}" url="../corp/corp?name={{item.company}}">
-    <view class="weui-panel__hd">
-      <view class="weui-media-box__title my-panel-title my-text-left">{{item.company}}</view>
-      <view class="my-panel-cell my-text-right">
-        浏览量：{{item.number}}
-      </view>
-    </view>
-    <view class="weui-panel__bd">
-      <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__desc weui-media-box__title_in-text my-panel-cell">热门职位：</view>
-        <view class="weui-media-box__desc">
-          <span class="my-panel-tag" wx:for="{{item.positions}}" wx:key="{{*this}}" wx:for-item="tag">{{tag}}</span> 
-        </view>
-      </view>
-    </view>
-    <!--<view class="weui-panel__ft">
-      <view class="weui-cell weui-cell_access weui-cell_link">
-        <view class="weui-cell__bd my-panel-cell">查看详情</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </view>
-    </view>-->
-  <!--/navigator-->
+<view>
+    <i-cell-group>
+    <i-cell title="基本用法">
+        <i-rate 
+            bind:change="onChange1" 
+            value="{{starIndex1}}">
+        </i-rate>
+    </i-cell>
+    <i-cell title="自定义星星个数">
+        <i-rate 
+            count="{{10}}"
+            value="{{starIndex5}}">
+        </i-rate>
+    </i-cell>
+    <i-cell title="自定义星星大小">
+        <i-rate 
+            bind:change="onChange2" 
+            value="{{starIndex2}}" 
+            size="32">
+        </i-rate>
+    </i-cell>
+    <i-cell title="自定义文字说明">
+        <i-rate 
+            bind:change="onChange2" 
+            value="{{starIndex2}}">
+            {{starIndex2}}星
+        </i-rate>
+    </i-cell>
+     <i-cell title="手势touch选择星">
+        <i-rate 
+            bind:change="onChange3" 
+            value="{{starIndex3}}">
+            {{starIndex3}}星
+        </i-rate>
+    </i-cell>
+    <i-cell title="禁用点击和手势选择星">
+        <i-rate 
+            disabled="{{true}}"
+            value="{{starIndex4}}">
+            {{starIndex4}}星
+        </i-rate>
+    </i-cell>
+</i-cell-group>
+
 </view>
-<include src="../../utils/postButton.wxml"/>
+
+<view>
+<i-cell-group>
+    <i-cell title="基本用法">
+        <i-rate 
+            bind:change="onChange1" 
+            value="{{starIndex1}}">
+        </i-rate>
+    </i-cell>
+</i-cell-group>
+</view>

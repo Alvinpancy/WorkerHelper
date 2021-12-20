@@ -1,117 +1,118 @@
-// pages/main/main.js
-var app = getApp();
-Page({
-  data: {
-    list: [],
-    kind: 'jobhot',
-    keyword: '',
-    anim: {}
-  },
-  onShareAppMessage: function () {
-    return {
-      title: 'OfferShow-最可信的校招薪水交流平台',
-      path: 'pages/hot/hot',
-      success: function(res) {
-        wx.showToast({
-          'title':'分享成功',
-          'icon':'success',
-          'duration': 1000
-        });
-      },
-      fail: function(res) {
-        // 分享失败
-      }
-    }
-  },     
-  getInfo: function(urltext, pastData = {}) {
-    var _this = this;
-    wx.showToast({
-      title: 'loading',
-      icon: 'loading',
-      duration: 10000
-    });
-    app.getAjaxData({
-      url: urltext,
-      data: pastData,
-      success: function(res) {
-        // success
-        var list = res.data.info;
-          // select unique corperation
-          var hash = {};
-          var filted = [];
-          var temp = {
-            'company': '',
-            'number': 0,
-            'positions': []
-          };
-          var ii = 0;
-          list.forEach((v, i) => {
-            if (hash.hasOwnProperty(v.company)) {
-              hash[v.company].number += v.number;
-              if(hash[v.company].positions.length < 3){
-                hash[v.company].positions.push(v.position.slice(0,5));
-              }
-            } else {
-              hash[v.company] = {
-                'company': v.company,
-                'number': v.number,
-                'positions': [v.position.slice(0,5)]
-              }
-            }
-          });
-          filted = Object.keys(hash).map(key => hash[key]);
+//index.js
+//获取应用实例
+const app = getApp()
 
-          filted.sort((a, b)=>{
-            return b.number - a.number;
-          });
-          _this.setData({
-            list: filted,
-            corpMode: true
-          });
-      },
-      fail: function(res) {
-        // fail
-        wx.showToast({
-          title: 'failed',
-          icon: 'success',
-          duration: 10000
+Page({
+    data: {
+        motto: 'Hello World',
+        userInfo: {},
+        hasUserInfo: false,
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        starIndex1 : 0,
+        starIndex2 : 0,
+        starIndex3 : 0,
+        starIndex4 : 4,
+        starIndex5 : 5,
+        navData:[
+            {
+                text: '首页'
+            },
+            {
+                text: '健康'
+            },
+            {
+                text: '情感'
+            }
+        ],
+        currentTab: 0,
+        navScrollLeft: 0
+    },
+    //事件处理函数
+    onLoad: function () {
+        if (app.globalData.userInfo) {
+            this.setData({
+                userInfo: app.globalData.userInfo,
+                hasUserInfo: true
+            })
+        } else if (this.data.canIUse) {
+            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+            // 所以此处加入 callback 以防止这种情况
+            app.userInfoReadyCallback = res => {
+                this.setData({
+                    userInfo: res.userInfo,
+                    hasUserInfo: true
+                })
+            }
+        } else {
+            // 在没有 open-type=getUserInfo 版本的兼容处理
+            wx.getUserInfo({
+                success: res => {
+                    app.globalData.userInfo = res.userInfo
+                    this.setData({
+                        userInfo: res.userInfo,
+                        hasUserInfo: true
+                    })
+                }
+            })
+        }
+
+
+        wx.getSystemInfo({
+            success: (res) => {
+                this.setData({
+                    pixelRatio: res.pixelRatio,
+                    windowHeight: res.windowHeight,
+                    windowWidth: res.windowWidth
+                })
+            },
+        })       
+    },
+    switchNav(event){
+        var cur = event.currentTarget.dataset.current; 
+        //每个tab选项宽度占1/5
+        var singleNavWidth = this.data.windowWidth / 5;
+        //tab选项居中                            
+        this.setData({
+            navScrollLeft: (cur - 2) * singleNavWidth
+        })      
+        if (this.data.currentTab == cur) {
+            return false;
+        } else {
+            this.setData({
+                currentTab: cur
+            })
+        }
+    },
+    switchTab(event){
+        var cur = event.detail.current;
+        var singleNavWidth = this.data.windowWidth / 5;
+        this.setData({
+            currentTab: cur,
+            navScrollLeft: (cur - 2) * singleNavWidth
         });
-      },
-      complete: function(res) {
-        // complete
-        wx.hideToast();
-      }
-    });
-  },
-  onLoad: function(options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    this.getInfo([app.globalData.domain, 'webapi', this.data.kind, ''].join('/'));
-  },
-  onReady: function() {
-    // 页面渲染完成
-  },
-  // onShow: function() {
-  //   // 页面显示
-  //   var animation = wx.createAnimation({
-  //     duration: 300,
-  //     timingFunction: "ease",
-  //     delay: 0
-  //   });
-  //   animation.translate(0, -20).step();
-  //   animation.translate(0, 0).step();
-  //   this.setData({
-  //     anim: animation.export()
-  //   });        
-  // },
-  onHide: function() {
-    // 页面隐藏
-  },
-  onUnload: function() {
-    // 页面关闭
-  },
-  tapAbout: function() {
-    wx.navigateTo({
-      url: '../about/about'
-    });
-  }
-});
+    },
+    onChange1(e){
+        const index = e.detail.index;
+        this.setData({
+            'starIndex1' : index
+        })
+    },
+    onChange2(e){
+        const index = e.detail.index;
+        this.setData({
+            'starIndex2' : index
+        })
+    },
+    onChange3(e){
+        const index = e.detail.index;
+        this.setData({
+            'starIndex3' : index
+        })
+    },
+    onChange5(e){
+        const index = e.detail.index;
+        this.setData({
+            'onChange5' : index
+        })
+    }
+})

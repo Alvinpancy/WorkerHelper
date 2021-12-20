@@ -7,7 +7,6 @@
   </view>
 </view>
 
-<view class="my-scroll" >
 
         <view id="basic" class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
@@ -78,9 +77,16 @@
         </view>    
 
         <view class="my-foot" ></view>
+
+
+<view class="my-bottom">
+    <view bindtap="tapAbove" class="btn bad" data-action="2">放弃</view>    
+    <view bindtap="tapConfirm" class="btn good" data-action="1">确定</view>
 </view>
-
-
+<view class="my-bottom">
+    <view bindtap="tapAbove" class="btn bad" data-action="2">放弃</view>    
+    <view bindtap="tapConfirm" class="btn good" data-action="1">确定</view>
+</view>
 <view class="my-bottom">
     <view bindtap="tapAbove" class="btn bad" data-action="2">放弃</view>    
     <view bindtap="tapConfirm" class="btn good" data-action="1">确定</view>

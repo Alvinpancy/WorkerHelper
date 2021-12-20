@@ -1,16 +1,56 @@
-/* pages/personal/index.wxss */
+.background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size: 100% 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.178);
+  /*background-image:url(https://img2.baidu.com/it/u=813170020,3946867767&fm=26&fmt=auto);*/
+}
 
 .uparea {
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
+  top: 11%;
   position: relative;
-  width: 100%;
-  height: 300rpx;
-  background-color: rgba(251, 251, 251, 1);
+}
+
+.salary_view_show {
+  display: block;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
+  position: relative;
+}
+
+.salary_view_show2 {
+  display: block;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
+  position: relative;
+  top: 5px;
+}
+
+.happiness_view_show {
+  display: block;
+  display: block;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  position: relative;
 }
 
 .user-avatar {
-  position: absolute;
-  top: 20rpx;
-  left: 20rpx;
+  position: relative;
+  top: 30rpx;
+  left: 30rpx;
   width: 200rpx;
   height: 200rpx;
   border-radius: 50%;
@@ -18,7 +58,7 @@
 }
 
 .user-nickname {
-  position: absolute;
+  position: relative;
   width: 200rpx;
   left: 20rpx;
   bottom: 30rpx;
@@ -31,168 +71,665 @@
 .user-post {
   width: 100rpx;
   height: 100rpx;
-  position: absolute;
+  position: relative;
   top: 90rpx;
   left: 250rpx;
   text-align: center;
 }
 
-.user-followers {
-  width: 130rpx;
+.use-save {
+  width: 100rpx;
   height: 100rpx;
-  position: absolute;
+  position: relative;
   top: 90rpx;
-  left: 380rpx;
+  left: 350rpx;
   text-align: center;
 }
 
 .user-followings {
-  width: 130rpx;
+  width: 100rpx;
   height: 100rpx;
-  position: absolute;
+  position: relative;
   top: 90rpx;
-  left: 560rpx;
+  left: 550rpx;
   text-align: center;
 
 }
 
-.post-number-text, .followers-number-text, .followings-number-text{
+.post-number-text,
+.followers-number-text,
+.followings-number-text {
   /* left: 20rpx; */
   text-align: center;
   font-size: 34rpx;
   color: black;
 }
 
-.post-text, .followers-text, .followings-text{
+.post-text,
+.followers-text,
+.followings-text {
   font-size: 30rpx;
   color: rgb(152, 152, 168);
 }
 
-.profile-button{
-  top: 110px;
-  position: absolute;
-  width: 60%;
-  height: 50rpx;
-  bottom: 100rpx;
-  left: 30%;
-  font-size: 30rpx;
-  text-align: center;
-  line-height: 50rpx;
-}
-
-.navbar{
-  display: flex;
+.container {
   width: 100%;
+  height: 100%;
+}
+
+.nav {
   height: 80rpx;
-}
-.nav-be-tagged, .nav-thumbnail, .nav-detail{
-  width: 375rpx;
-  height: 80rpx;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-image{
-  height: 70rpx;
-  width: 70rpx;
-}
-
-.scroll-view-css{
-  widows: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.thumbnail-image{
-  width: 248rpx;
-  height: 250rpx;
-  display: flex;
-  margin: 1rpx;
-}
-
-.detail-post{
-  widows: 750rpx;
-}
-
-.post-user-avatar{
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 50%;
-  position: absolute;
-  left: 10rpx;
-  top: 10rpx;
-}
-
-.post-user-nickname{
-  position: absolute;
-  height: 80rpx;
+  width: 106%;
+  box-sizing: border-box;
+  overflow: hidden;
   line-height: 80rpx;
-  left: 80rpx;
-  top: 0;
-  font-size: 30rpx;
+  background: #ffffff;
+  font-size: 16px;
+  white-space: nowrap;
+  position: fixed;
+  z-index: 99;
+  border-radius: 12px;
+  position: relative;
+  margin-left: -3%;
+  margin-top: 20%;
 }
 
-.number-of-like{
-  width: 100%;
-  height: 60rpx;
-  line-height: 60rpx;
-  align-content: center;
+.nav-item {
+  width: 33.3%;
+  display: inline-block;
+  text-align: center;
+  color: rgb(165, 165, 165);
   font-size: 30rpx;
-  text-indent: 20rpx;
+  font-weight: bold;
 }
 
-.post-user-info{
+.nav-item.active {
+  color: rgb(0, 0, 0);
+  font-size: 30rpx;
+  color: black;
+  font-weight: bold;
+}
+
+.tab-box {
+  height: 100%;
+  margin-left: -5%;
+  margin-right: -5%;
+  box-sizing: border-box;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 1.5%;
+}
+
+.tab-content {
+  overflow-y: scroll;
+  border-radius: 20px;
+  display: flex;
+}
+
+.banner-box {
   width: 100%;
-  height: 80rpx;
-  align-content: center;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.salary-text {
+  position: relative;
+  width: 200rpx;
+  top: 15rpx;
+  left: 30rpx;
+  bottom: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: black;
+  font-weight: bold;
+}
+
+.salary_prof_text {
+  position: relative;
+  width: 200rpx;
+  top: 15rpx;
+  left: 42%;
+  bottom: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: black;
+  font-weight: bold;
+}
+
+.salary_num_get_text {
+  position: relative;
+  width: 200rpx;
+  top: 15rpx;
+  left: 54%;
+  bottom: 30rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: black;
+  font-weight: bold;
+}
+
+.select-kind-view {
+  width: 750rpx;
+  height: 70rpx;
   position: relative;
 }
 
-.detail-view{
-  width: 100%;
-}
-
-.post-icons{
-  width: 100%;
-  height: 80rpx;
+.input_info_view {
+  width: 750rpx;
+  height: 55rpx;
   position: relative;
 }
 
-.like-icon, .comment-icon{
-  width: 60rpx;
-  height: 60rpx;
+.divide_view {
+  width: 750rpx;
+  height: 35rpx;
+  position: relative;
+}
+
+.divide_view_iu {
+  width: 750rpx;
+  height: 300rpx;
+  position: relative;
+}
+
+.school_btn_default {
   position: absolute;
-  top: 10rpx;
+  left: 15%;
+  background-color: rgb(228, 228, 228);
+  width: 22%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: center;
+  font-size: 25rpx;
+  top: 16rpx;
 }
 
-.like-icon{
-  left: 20rpx;
+.school_btn_active {
+  position: absolute;
+  left: 15%;
+  background-color: rgb(61, 61, 61);
+  width: 22%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: center;
+  top: 16rpx;
 }
 
-.comment-icon{
-  left: 100rpx;
+.post_btn {
+  position: relative;
+  left: 33%;
+  background-color: rgb(61, 61, 61);
+  width: 30%;
+  bottom: 30%;
+  height: 60rpx;
+  border-radius: 30rpx;
+  line-height: 55rpx;
+  text-align: center;
+  align-content: center;
 }
 
-.post-text{
-  widows: 100%;
-  padding-left: 20rpx;
-  color:black;
-  margin-bottom: 20rpx;
+.society_btn_default {
+  position: absolute;
+  left: 42%;
+  background-color: rgb(228, 228, 228);
+  width: 22%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: center;
+  font-size: 25rpx;
+  top: 16rpx;
 }
 
-.swiper{
-  width: 100%;
-  height: auto;
+.society_btn_active {
+  position: absolute;
+  left: 42%;
+  background-color: rgb(61, 61, 61);
+  width: 22%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: center;
+  font-size: 25rpx;
+  top: 16rpx;
 }
 
-.detail-image{
-  width: 100%;
-  height: 750rpx;
+.intern_btn_default {
+  position: absolute;
+  left: 69%;
+  background-color: rgb(228, 228, 228);
+  width: 22%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: center;
+  font-size: 25rpx;
+  top: 16rpx;
 }
 
-.swiper-pre{
-  width: 100%;
-  height: 750rpx;
+.intern_btn_active {
+  position: absolute;
+  left: 69%;
+  background-color: rgb(61, 61, 61);
+  width: 22%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: center;
+  font-size: 25rpx;
+  top: 16rpx;
+}
+
+.kind_text_default {
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+}
+
+.salary_show_text_default {
+  position: absolute;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 70%;
+}
+
+.salary_show0_text_default {
+  position: absolute;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 75%;
+}
+
+.workHours_show_text_default {
+  position: absolute;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 70%;
+}
+
+.happinessWordStyle {
+  position: relative;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 13%;
+  top: 20%;
+}
+
+.rateWordStyle1 {
+  position: relative;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 6%;
+}
+
+.rateWordStyle2 {
+  position: relative;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 37%;
+}
+
+.rateWordStyle3 {
+  position: relative;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 6%;
+}
+
+.rateWordStyle4 {
+  position: relative;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 38%;
+}
+
+.rateStarsStyle1 {
+  position: absolute;
+  color: #0000006e;
+  left: 21%;
+  top: 7.2%;
+}
+
+.rateStarsStyle2 {
+  position: absolute;
+  color: #0000006e;
+  left: 66%;
+  top: 7.2%;
+}
+
+.rateStarsStyle3 {
+  position: absolute;
+  color: #0000006e;
+  left: 21%;
+  top: 13%;
+}
+
+.rateStarsStyle4 {
+  position: absolute;
+  color: #0000006e;
+  left: 66%;
+  top: 13%;
+}
+
+.rateStarsStyle1_iu {
+  position: absolute;
+  color: #0000006e;
+  left: 21%;
+  top: 23%;
+}
+
+.rateStarsStyle2_iu {
+  position: absolute;
+  color: #0000006e;
+  left: 66%;
+  top: 23%;
+}
+
+.rateStarsStyle3_iu {
+  position: absolute;
+  color: #0000006e;
+  left: 21%;
+  top: 41%;
+}
+
+.rateStarsStyle4_iu {
+  position: absolute;
+  color: #0000006e;
+  left: 66%;
+  top: 41%;
+}
+
+.restHours_show_text_default {
+  position: absolute;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: 80%;
+  top: -35%;
+}
+
+.remarks_show_text_default {
+  position: relative;
+  color: #0000006e;
+  font-weight: bold;
+  font-size: 25rpx;
+  left: -150%;
+  top: -35%;
+}
+
+.kind_text_active {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 25rpx;
+}
+
+.salary_input_area {
+  position: absolute;
+  left: 15%;
+  background-color: rgb(228, 228, 228);
+  width: 76%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.salary_input_city_area {
+  position: absolute;
+  left: 15%;
+  background-color: rgb(228, 228, 228);
+  width: 32%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.salary_input_monthMoney_area {
+  position: absolute;
+  left: 15%;
+  background-color: rgb(228, 228, 228);
+  width: 20%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.workHours_input_area {
+  position: absolute;
+  left: 23%;
+  background-color: rgb(228, 228, 228);
+  width: 30%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.restHours_input_area {
+  position: absolute;
+  left: 23%;
+  background-color: rgb(228, 228, 228);
+  width: 68%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.remarks_input_area_input {
+  position: absolute;
+  left: 4%;
+  background-color: rgb(228, 228, 228);
+  width: 87%;
+  height: 260rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.experience_input_area_input {
+  position: absolute;
+  left: 4%;
+  background-color: rgb(228, 228, 228);
+  width: 87%;
+  height: 300rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.multiply_positoin {
+  position: absolute;
+  left: 27%;
+  width: 20%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.multiply_positoin_iu {
+  position: absolute;
+  color: #0000006e;
+  left: 46%;
+  width: 20%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.salary_input_monthNum_area {
+  position: absolute;
+  left: 39%;
+  background-color: rgb(228, 228, 228);
+  width: 20%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.workDaysNum_input_area {
+  position: absolute;
+  left: 59%;
+  background-color: rgb(228, 228, 228);
+  width: 32%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.remarks_input_area_view {
+  position: absolute;
+  left: 55%;
+  background-color: rgb(228, 228, 228);
+  width: 32%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.experience_input_area_view {
+  position: absolute;
+  left: 55%;
+  background-color: rgb(228, 228, 228);
+  width: 32%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.salary_input_prof_area {
+  position: absolute;
+  left: 59%;
+  background-color: rgb(228, 228, 228);
+  width: 32%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.sexRate_input_area {
+  position: absolute;
+  left: 23%;
+  background-color: rgb(228, 228, 228);
+  width: 68%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.salary_get_area {
+  position: absolute;
+  left: 71%;
+  background-color: rgb(228, 228, 228);
+  width: 20%;
+  height: 45rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  text-align: center;
+  align-content: flex-start;
+  font-size: 25rpx;
+  font-weight: bold;
+  top: 16rpx;
+}
+
+.selectChara {
+  position: absolute;
+  color: rgb(182, 182, 182);
+  font-size: 25px;
+  left: 80%;
+  top: -15rpx;
+}
+
+.selectsexRate {
+  position: absolute;
+  color: rgb(182, 182, 182);
+  font-size: 25px;
+  left: 90%;
+  top: -15rpx;
 }

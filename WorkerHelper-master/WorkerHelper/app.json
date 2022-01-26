@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/search/search",
+    "pages/jobInfo/jobInfo",
+    "pages/post/post",
+    "pages/mine/mine",
+    "pages/corp/corp",
+    "pages/detail/detail",
+    "pages/about/about",
+    "pages/ads/ads",
+    "pages/jump/jump"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "iWorking",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#000000",
+    "borderStyle": "white",
+    "color": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "image/1.png",
+        "selectedIconPath": "image/me-active.jpg",
+        "text": "我"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/2.png",
+        "selectedIconPath": "image/school-recruitment-active.jpg",
+        "text": "校招"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "iconPath": "image/3.png",
+        "selectedIconPath": "image/6.png",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/4.png",
+        "selectedIconPath": "image/social-recuitment-active.jpg",
+        "text": "社招"
+      },
+      {
+        "pagePath": "pages/jobInfo/jobInfo",
+        "iconPath": "image/5.png",
+        "selectedIconPath": "image/7.png",
+        "text": "经验帖"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

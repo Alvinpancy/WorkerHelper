@@ -1,0 +1,9 @@
+<view class='user-nickname' style="position: absolute; left: 0rpx; top: 10rpx; width: 200rpx; height: 62rpx; display: block; box-sizing: border-box">
+  类型
+</view>
+
+<view style="position: absolute; left: 0rpx; top: 50rpx; width: 200rpx; height: 62rpx; display: block; box-sizing: border-box">
+  <i-button bind:click="handleClick" type="success" shape="circle" size="small">小尺寸</i-button>
+  <i-button bind:click="handleClick" type="success" shape="circle" size="small">小尺寸</i-button>
+  <i-button bind:click="handleClick" type="success" shape="circle" size="small">小尺寸</i-button>
+</view>

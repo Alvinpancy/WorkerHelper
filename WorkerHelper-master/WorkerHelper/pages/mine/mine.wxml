@@ -1,0 +1,338 @@
+<view class="background" />
+<view class='uparea' style="height: 250rpx; display: block; box-sizing: border-box;">
+    <image src='https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fec%2Fca%2Fd8%2Feccad87a334d082b8ff200ae01157e44.jpg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640548373&t=d67e7d062760ba27450f057629be85f7' class='user-avatar'>
+    </image>
+    <view class='user-nickname' style="position: absolute; left: 220rpx; top: 35rpx; width: 200rpx; height: 62rpx; display: block; box-sizing: border-box">
+        Alvin{{user_info.nickName}}
+    </view>
+
+    <view class='user-post' bindtap='clickPost' style="width: 78rpx; height: 100rpx; display: block; box-sizing: border-box; left: 281rpx; top: 90rpx; position: absolute">
+        <view class='post-number-text' style="width: 67rpx; height: 46rpx; display: block; box-sizing: border-box">
+            11{{post_cnt}}
+        </view>
+        <view class='followings-text' style="width: 67rpx; height: 46rpx; display: block; box-sizing: border-box">
+            发布
+        </view>
+    </view>
+
+    <view class='use-save' bindtap='clickFollower' style="position: absolute; left: 419rpx; top: 90rpx; width: 78rpx; height: 100rpx; display: block; box-sizing: border-box">
+        <view class='followers-number-text' style="width: 74rpx; height: 46rpx; display: block; box-sizing: border-box">
+            <text>12{{follower_cnt}}</text>
+        </view>
+        <view class='followings-text' style="width: 74rpx; height: 46rpx; display: block; box-sizing: border-box">
+            收藏
+        </view>
+    </view>
+
+    <view class='user-followings' bindtap='clickFollowing' style="position: absolute; left: 554rpx; top: 90rpx">
+        <view class='followings-number-text' style="width: 99rpx; height: 46rpx; display: block; box-sizing: border-box">
+            12{{following_cnt}}
+        </view>
+        <view class='followings-text' style="width: 99rpx; height: 46rpx; display: block; box-sizing: border-box">
+            留言
+        </view>
+    </view>
+</view>
+
+<view class="container">
+    <!-- tab导航栏 -->
+    <!-- scroll-left属性可以控制滚动条位置 -->
+    <!-- scroll-with-animation滚动添加动画过渡 -->
+    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+        <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+            <view class="nav-item {{currentTab == idx ?'active':''}}" data-current="{{idx}}" bindtap="switchNav">{{navItem.text}}</view>
+        </block>
+    </scroll-view>
+    <!-- 页面内容 -->
+    <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+        <swiper-item class="tab-box-item" wx:for="{{[0]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
+            <view class="banner-box">
+                <!--add salary-->
+                <view id="basic" class="salary_view_show">
+                 <text class="salary-text">类型</text>
+                     <view class='select-kind-view'>  
+                        <view class="{{schoolBtn?'school_btn_active':'school_btn_default'}} type_btn" bindtap='schoolSelectBtn' >
+                            <text class="{{schoolBtn?'kind_text_active':'kind_text_default'}}">校招</text>
+                        </view>
+                        <view class="{{societyBtn?'society_btn_active':'society_btn_default'}} type_btn" bindtap='societySelectBtn'>
+                            <text class="{{societyBtn?'kind_text_active':'kind_text_default'}}">社招</text>
+                        </view>
+                        <view class="{{internBtn?'intern_btn_active':'intern_btn_default'}} type_btn" bindtap='internSelectBtn'>
+                            <text class="{{internBtn?'kind_text_active':'kind_text_default'}}">实习</text>
+                        </view>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">公司</text>
+                        <input class="salary_input_area input_box" bindinput='companyInput'>
+                        </input>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">岗位</text>
+                        <input class="salary_input_area input_box" bindinput='positionInput'>
+                        </input>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">城市</text>
+                        <input class="salary_input_city_area input_box" bindinput='cityInput'>
+                        </input>
+                        <text class="salary_prof_text">行业</text>
+                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
+                            <view class="salary_input_prof_area input_box">
+                                {{category[cateIndex]}}
+                                <text class="selectChara">⌄</text>
+                            </view>
+                        </picker>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">薪资</text>
+                        <input class="salary_input_monthMoney_area input_box" bindinput='salaryMonthMoneyInput'></input>
+                        <view class="salary_input_monthMoney_area input_box">
+                            <text class="salary_show0_text_default show_text_default">K</text>
+                        </view>
+                        <text class="multiply_positoin salary-text">X</text>
+                        <input class="salary_input_monthNum_area input_box" bindinput='salaryMonthNumInput'></input>
+                        <view class="salary_input_monthNum_area input_box">
+                            <text class="salary_show_text_default show_text_default">薪</text>
+                        </view>
+                        <view class="salary_get_area input_box"></view>
+                        <text class="salary_num_get_text">年薪</text>
+                        <input class="salary_get_area input_box" bindinput='salaryYearMoneyInput'></input>
+                        <view class="salary_get_area input_box">
+                            <text class="salary_show0_text_default show_text_default">W</text>
+                        </view>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text" >学历</text>
+                        <text class="salary_prof_text">资质</text>
+                        <picker bindchange="changeTitle" value="{{titleIndex}}" range="{{title}}">
+                            <view class="salary_input_city_area input_box">
+                                {{category[cateIndex]}}
+                                <text class="selectChara">⌄</text>
+                            </view>
+                        </picker>
+                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
+                            <view class="salary_input_prof_area input_box">
+                                {{category[cateIndex]}}
+                                <text class="selectChara">⌄</text>
+                            </view>
+                        </picker>
+                    </view>
+                    <view class='divide_view'>
+                    </view>
+                </view>
+                <!--add happniess-->
+                <view id="basic" class="salary_view_show2">
+                    <view class='select-kind-view'>
+                        <text class="salary-text happiness_num_text">iU指数 (幸福指数)</text>
+                    </view>
+                    <view>
+                        <text class="rateWordStyle1 rateWordStyle" >交通便捷</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle1" bind:change="onChange1" value="{{starIndex1}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                        <text class="rateWordStyle2 rateWordStyle">工作环境</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle2" bind:change="onChange2" value="{{starIndex2}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                    </view>
+                    <view>
+                        <text class="rateWordStyle3 rateWordStyle" style="position: relative; left: NaNrpx; top: NaNrpx">同事环境</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle3" bind:change="onChange3" value="{{starIndex3}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                        <text class="rateWordStyle4 rateWordStyle">成就感</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle4" bind:change="onChange4" value="{{starIndex4}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                    </view>
+                    <view style="height: 8px;"></view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">工作时长</text>
+                        <input class="workHours_input_area input_box" bindinput='salaryMonthMoneyInput'></input>
+                        <view class="workHours_input_area input_box">
+                            <text class="workHours_show_text_default show_text_default">时/天</text>
+                        </view>
+                        <text class="multiply_positoin_iu salary-text">X</text>
+                        <input class="workDaysNum_input_area input_box" bindinput='salaryMonthNumInput'></input>
+                        <view class="workDaysNum_input_area input_box">
+                            <text class="workHours_show_text_default show_text_default">天/周</text>
+                        </view>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">休息时长</text>
+                        <input class="restHours_input_area input_box" bindinput='cityInput'>
+                        <view class="workDaysNum_input_area input_box">
+                            <text class="restHours_show_text_default show_text_default">时/天</text>
+                        </view>
+                        </input>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">男女比例</text>
+                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
+                            <view class="restHours_input_area input_box">
+                                {{category[cateIndex]}}
+                                <text class="selectsexRate">⌄</text>
+                            </view>
+                        </picker>
+                    </view>
+                    <view class='input_info_view'>
+                        <text class="salary-text">裁员情况</text>
+                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
+                            <view class="restHours_input_area input_box">
+                                {{category[cateIndex]}}
+                                <text class="selectsexRate">⌄</text>
+                            </view>
+                        </picker>
+                    </view>
+                        <text class="salary-text">备注信息</text>
+                        <view class='input_info_view'>
+                            <input class="remarks_input_area_input" bindinput='cityInput'>
+                            <view class="remarks_input_area_view">
+                                <text class="remarks_show_text_default">福利、996工作情况等</text>
+                            </view>
+                            </input>   
+                    </view>
+                    <view class='divide_view_iu'>
+                    </view>
+                    <view class='select-kind-view'>
+                        <view class="post_btn" bindtap='schoolSelectBtn'>
+                            <text class="kind_text_active">发布</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+        
+        <swiper-item class="tab-box-item" wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
+
+            <view class="banner-box">
+                <!--modify happniess-->
+                <view id="basic" class="salary_view_show2">
+                    <view class='select-kind-view'>
+                        <text class="salary-text happiness_num_text">生成专属iU指数</text>
+                        <text class="happinessWordStyle">重视程度</text>
+                    </view>
+                    <view style="height: 11px;"></view>
+                    <view>
+                        <text class="rateWordStyle1 rateWordStyle">交通便捷</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle1_iu rateStarsStyle_iu_left1 " bind:change="onChange1" value="{{starIndex1}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                        <text class="rateWordStyle2 rateWordStyle">工作环境</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle1_iu rateStarsStyle_iu_left2 " bind:change="onChange2" value="{{starIndex2}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                    </view>
+                    <view style="height: 6px;"></view>
+                    <view>
+                        <text class="rateWordStyle3 rateWordStyle">同事环境</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle2_iu rateStarsStyle_iu_left1" bind:change="onChange3" value="{{starIndex3}}">
+                                </i-rate>
+                            </i-cell>
+                    
+                        </i-cell-group>
+                        <text class="rateWordStyle4 rateWordStyle">成就感</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle2_iu rateStarsStyle_iu_left2" bind:change="onChange4" value="{{starIndex4}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                    </view>
+                    <view style="height: 11px;"></view>
+                    <view>
+                        <text class="rateWordStyle3 rateWordStyle">工作时长</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle3_iu rateStarsStyle_iu_left1" bind:change="onChange5" value="{{starIndex5}}">
+                                </i-rate>
+                            </i-cell>
+                    
+                        </i-cell-group>
+                        <text class="rateWordStyle4 rateWordStyle">休息时长</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle3_iu rateStarsStyle_iu_left2" bind:change="onChange6" value="{{starIndex6}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                    </view>
+                    <view style="height: 11px;"></view>
+                    <view>
+                        <text class="rateWordStyle3 rateWordStyle">男女比例</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle4_iu rateStarsStyle_iu_left1" bind:change="onChange7" value="{{starIndex7}}">
+                                </i-rate>
+                            </i-cell>
+                    
+                        </i-cell-group>
+                        <text class="rateWordStyle4 rateWordStyle">裁员情况</text>
+                        <i-cell-group>
+                            <i-cell title="基本用法">
+                                <i-rate i-class="rateStarsStyle4_iu rateStarsStyle_iu_left2" bind:change="onChange8" value="{{starIndex8}}">
+                                </i-rate>
+                            </i-cell>
+                        </i-cell-group>
+                    </view>
+                    <view style="height: 70px;"></view>
+                    <view class='select-kind-view'>
+                        <view class="post_btn" bindtap='schoolSelectBtn'>
+                            <text class="kind_text_active">完成</text>
+                        </view>
+                    </view>
+                </view>          
+            </view>
+        </swiper-item>
+
+        <swiper-item class="tab-box-item" wx:for="{{[2]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
+            <view class="banner-box">
+                <!--experience-->
+                <view class="banner-box">
+                    <!--add experience-->
+                    <view id="basic" class="salary_view_show2">
+                        <view class='select-kind-view'>
+                            <text class="salary-text">分享你的经验</text>
+                        </view>
+                        <view class='select-kind-view'>
+                            <view class='input_info_view'>
+                                <input class="experience_input_area_input" bindinput='cityInput'>
+                                <view class="experience_input_area_view">
+                                    <text class="remarks_show_text_default">分享你求职过程中的经验</text>
+                                </view>
+                                </input>
+                            </view>
+                        </view>
+                        <view class='divide_view_iu'>
+                        </view>
+                        <view class='select-kind-view'>
+                            <view class="post_btn" bindtap='schoolSelectBtn'>
+                                <text class="kind_text_active">发布</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>

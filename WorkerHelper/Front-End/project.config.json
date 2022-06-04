@@ -41,7 +41,7 @@
   "compileType": "miniprogram",
   "libVersion": "1.9.91",
   "appid": "wx32ecbd53aa7b4d43",
-  "projectname": "off",
+  "projectname": "workerhelper",
   "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},

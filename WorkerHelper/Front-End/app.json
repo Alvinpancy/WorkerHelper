@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/search/search",
-    "pages/jobInfo/jobInfo",
+    "pages/schoolJobInfo/jobInfo",
+    "pages/socialJobInfo/jobInfo",
     "pages/post/post",
     "pages/mine/mine",
     "pages/corp/corp",
@@ -28,7 +29,7 @@
         "text": "我"
       },
       {
-        "pagePath": "pages/jobInfo/jobInfo",
+        "pagePath": "pages/schoolJobInfo/jobInfo",
         "iconPath": "image/school-recruitment.jpg",
         "selectedIconPath": "image/school-recruitment-active.jpg",
         "text": "校招"
@@ -40,7 +41,7 @@
         "text": "搜索"
       },
       {
-        "pagePath": "pages/jobInfo/jobInfo",
+        "pagePath": "pages/socialJobInfo/jobInfo",
         "iconPath": "image/social-recuitment.jpg",
         "selectedIconPath": "image/social-recuitment-active.jpg",
         "text": "社招"

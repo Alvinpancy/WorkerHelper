@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-rate": "../../dist/rate/index"
+  },
+  "navigationBarTitleText": "个人主页",
+  "navigationStyle": "custom"
+}

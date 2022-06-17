@@ -1,4 +1,5 @@
 <view class="background" />
+    <!-- 头像信息栏 -->
 <view class='uparea' style="height: 250rpx; display: block; box-sizing: border-box;">
     <image src='https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fec%2Fca%2Fd8%2Feccad87a334d082b8ff200ae01157e44.jpg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640548373&t=d67e7d062760ba27450f057629be85f7' class='user-avatar'>
     </image>
@@ -49,6 +50,7 @@
             <view class="banner-box">
                 <!--add salary-->
                 <view id="basic" class="salary_view_show">
+                <!-- 类型 -->
                  <text class="salary-text">类型</text>
                      <view class='select-kind-view'>  
                         <view class="{{schoolBtn?'school_btn_active':'school_btn_default'}} type_btn" bindtap='schoolSelectBtn' >
@@ -61,16 +63,19 @@
                             <text class="{{internBtn?'kind_text_active':'kind_text_default'}}">实习</text>
                         </view>
                     </view>
+                    <!-- 公司 -->
                     <view class='input_info_view'>
                         <text class="salary-text">公司</text>
                         <input class="salary_input_area input_box" bindinput='companyInput'>
                         </input>
                     </view>
+                    <!-- 岗位 -->
                     <view class='input_info_view'>
                         <text class="salary-text">岗位</text>
                         <input class="salary_input_area input_box" bindinput='positionInput'>
                         </input>
                     </view>
+                    <!-- 城市+行业 -->
                     <view class='input_info_view'>
                         <text class="salary-text">城市</text>
                         <input class="salary_input_city_area input_box" bindinput='cityInput'>
@@ -83,6 +88,7 @@
                             </view>
                         </picker>
                     </view>
+                    <!-- 薪资 -->
                     <view class='input_info_view'>
                         <text class="salary-text">薪资</text>
                         <input class="salary_input_monthMoney_area input_box" bindinput='salaryMonthMoneyInput'></input>
@@ -101,6 +107,7 @@
                             <text class="salary_show0_text_default show_text_default">W</text>
                         </view>
                     </view>
+                    <!-- 学历+资质 -->
                     <view class='input_info_view'>
                         <text class="salary-text" >学历</text>
                         <text class="salary_prof_text">资质</text>
@@ -125,39 +132,12 @@
                     <view class='select-kind-view'>
                         <text class="salary-text happiness_num_text">iU指数 (幸福指数)</text>
                     </view>
-                    <view>
-                        <text class="rateWordStyle1 rateWordStyle" >交通便捷</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle1" bind:change="onChange1" value="{{starIndex1}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
-                        <text class="rateWordStyle2 rateWordStyle">工作环境</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle2" bind:change="onChange2" value="{{starIndex2}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
-                    </view>
-                    <view>
-                        <text class="rateWordStyle3 rateWordStyle" style="position: relative; left: NaNrpx; top: NaNrpx">同事环境</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle3" bind:change="onChange3" value="{{starIndex3}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
-                        <text class="rateWordStyle4 rateWordStyle">成就感</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle4" bind:change="onChange4" value="{{starIndex4}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
-                    </view>
-                    <view style="height: 8px;"></view>
+                    <!-- 星级评价 -->
+                    
+                        
+                       
+                    
+                    <!-- 工作时长 -->
                     <view class='input_info_view'>
                         <text class="salary-text">工作时长</text>
                         <input class="workHours_input_area input_box" bindinput='salaryMonthMoneyInput'></input>
@@ -170,6 +150,7 @@
                             <text class="workHours_show_text_default show_text_default">天/周</text>
                         </view>
                     </view>
+                    <!-- 休息时长 -->
                     <view class='input_info_view'>
                         <text class="salary-text">休息时长</text>
                         <input class="restHours_input_area input_box" bindinput='cityInput'>
@@ -178,6 +159,7 @@
                         </view>
                         </input>
                     </view>
+                    <!-- 男女比例 -->
                     <view class='input_info_view'>
                         <text class="salary-text">男女比例</text>
                         <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
@@ -187,6 +169,7 @@
                             </view>
                         </picker>
                     </view>
+                    <!-- 裁员情况 -->
                     <view class='input_info_view'>
                         <text class="salary-text">裁员情况</text>
                         <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
@@ -196,14 +179,88 @@
                             </view>
                         </picker>
                     </view>
-                        <text class="salary-text">备注信息</text>
-                        <view class='input_info_view'>
+                    <!-- <view style="height: 8px;"></view> -->
+                    <view>       
+                        <van-row >
+                            <van-col span="5">
+                                <text class="rateWordStyle1 rateWordStyle" >交通便捷</text>
+                            </van-col>
+                            <van-col span="8" offset="5">
+                                <van-rate
+                                        value="{{starIndex1}}"
+                                        size="{{starSize}}"
+                                        icon="{{starIcon}}"
+                                        void-icon="{{starVoidIcon}}"
+                                        color="{{starColor}}"
+                                        gutter="{{starGutter}}"
+                                        custom-class="rateStarsStyle1"
+                                        bind:change="onChange1"
+                                />
+                            </van-col>
+
+                            <van-col span="5" offset="5">
+                                <text class="rateWordStyle2 rateWordStyle">工作环境</text>
+                            </van-col>
+                            <van-col span="8" offset="5">
+                                
+                                <van-rate
+                                        value="{{starIndex2}}"
+                                        size="{{starSize}}"
+                                        icon="{{starIcon}}"
+                                        void-icon="{{starVoidIcon}}"
+                                        color="{{starColor}}"
+                                        gutter="{{starGutter}}"
+                                        custom-class="rateStarsStyle2"
+                                        bind:change="onChange2"
+                                />
+                            </van-col>
+                        </van-row>
+                        
+                        
+                        <van-row >
+                            <van-col span="5">
+                                <text class="rateWordStyle3 rateWordStyle" >同事环境</text>
+                            </van-col>
+                            <van-col span="8" offset="5">
+                                <van-rate
+                                        value="{{starIndex3}}"
+                                        size="{{starSize}}"
+                                        icon="{{starIcon}}"
+                                        void-icon="{{starVoidIcon}}"
+                                        color="{{starColor}}"
+                                        gutter="{{starGutter}}"
+                                        custom-class="rateStarsStyle3"
+                                        bind:change="onChange3"
+                                />
+                            </van-col>    
+                            <van-col span="5" offset="5">
+                                <text class="rateWordStyle4 rateWordStyle" >成就感</text>
+                            </van-col>
+                            <van-col span="8" offset="5">
+                                <van-rate
+                                        value="{{starIndex4}}"
+                                        size="{{starSize}}"
+                                        icon="{{starIcon}}"
+                                        void-icon="{{starVoidIcon}}"
+                                        color="{{starColor}}"
+                                        gutter="{{starGutter}}"
+                                        custom-class="rateStarsStyle4"
+                                        bind:change="onChange4"
+                                />
+                            </van-col>
+                        </van-row> 
+                    </view> 
+                    <view style="height: 50rpx;"></view>
+                    <!-- 备注信息 -->
+                    <text class="salary-text">备注信息</text>
+                    <view class='input_info_view'>
                             <input class="remarks_input_area_input" bindinput='cityInput'>
                             <view class="remarks_input_area_view">
                                 <text class="remarks_show_text_default">福利、996工作情况等</text>
                             </view>
                             </input>   
                     </view>
+                    <!-- 发布 -->
                     <view class='divide_view_iu'>
                     </view>
                     <view class='select-kind-view'>
@@ -214,88 +271,123 @@
                 </view>
             </view>
         </swiper-item>
-        
+        <!--modify happniess-->
         <swiper-item class="tab-box-item" wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
-
             <view class="banner-box">
-                <!--modify happniess-->
                 <view id="basic" class="salary_view_show2">
                     <view class='select-kind-view'>
                         <text class="salary-text happiness_num_text">生成专属iU指数</text>
                         <text class="happinessWordStyle">重视程度</text>
                     </view>
-                    <view style="height: 11px;"></view>
+                    <view style="height: 50rpx;"></view>
+                    <!-- 交通+工作环境 -->
                     <view>
-                        <text class="rateWordStyle1 rateWordStyle">交通便捷</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle1_iu rateStarsStyle_iu_left1 " bind:change="onChange1" value="{{starIndex1}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
-                        <text class="rateWordStyle2 rateWordStyle">工作环境</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle1_iu rateStarsStyle_iu_left2 " bind:change="onChange2" value="{{starIndex2}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
+                        <text class="rateWordStyle1_iu  rateWordStyle_iu_left1 rateWordStyle">交通便捷</text>
+                        <van-rate
+                            value="{{starIndex1}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle1_iu rateStarsStyle_iu_left1"
+                            bind:change="onChange1"
+                        />
+                        <text class="rateWordStyle1_iu rateWordStyle_iu_left2 rateWordStyle">工作环境</text>
+                        <van-rate
+                            value="{{starIndex2}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle1_iu rateStarsStyle_iu_left2"
+                            bind:change="onChange2"
+                        />
                     </view>
-                    <view style="height: 6px;"></view>
-                    <view>
-                        <text class="rateWordStyle3 rateWordStyle">同事环境</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle2_iu rateStarsStyle_iu_left1" bind:change="onChange3" value="{{starIndex3}}">
-                                </i-rate>
-                            </i-cell>
                     
-                        </i-cell-group>
-                        <text class="rateWordStyle4 rateWordStyle">成就感</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle2_iu rateStarsStyle_iu_left2" bind:change="onChange4" value="{{starIndex4}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
-                    </view>
-                    <view style="height: 11px;"></view>
-                    <view>
-                        <text class="rateWordStyle3 rateWordStyle">工作时长</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle3_iu rateStarsStyle_iu_left1" bind:change="onChange5" value="{{starIndex5}}">
-                                </i-rate>
-                            </i-cell>
+                    <!-- 同事环境+成就感 -->
                     
-                        </i-cell-group>
-                        <text class="rateWordStyle4 rateWordStyle">休息时长</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle3_iu rateStarsStyle_iu_left2" bind:change="onChange6" value="{{starIndex6}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
-                    </view>
-                    <view style="height: 11px;"></view>
                     <view>
-                        <text class="rateWordStyle3 rateWordStyle">男女比例</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle4_iu rateStarsStyle_iu_left1" bind:change="onChange7" value="{{starIndex7}}">
-                                </i-rate>
-                            </i-cell>
-                    
-                        </i-cell-group>
-                        <text class="rateWordStyle4 rateWordStyle">裁员情况</text>
-                        <i-cell-group>
-                            <i-cell title="基本用法">
-                                <i-rate i-class="rateStarsStyle4_iu rateStarsStyle_iu_left2" bind:change="onChange8" value="{{starIndex8}}">
-                                </i-rate>
-                            </i-cell>
-                        </i-cell-group>
+                        <text class="rateWordStyle2_iu rateWordStyle_iu_left1 rateWordStyle">同事环境</text>   
+                        <van-rate
+                            value="{{starIndex3}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle2_iu rateStarsStyle_iu_left1"
+                            bind:change="onChange3"
+                        />
+                            
+                        <text class="rateWordStyle2_iu rateWordStyle_iu_left2 rateWordStyle">成就感</text>
+                            
+                            
+                        <van-rate
+                            value="{{starIndex4}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle2_iu rateStarsStyle_iu_left2"
+                            bind:change="onChange4"
+                        />
                     </view>
-                    <view style="height: 70px;"></view>
+                    
+                    <!-- 工作时长+休息时长 -->
+                    <view>
+                        <text class="rateWordStyle3_iu rateWordStyle_iu_left1 rateWordStyle">工作时长</text>
+                        <van-rate
+                            value="{{starIndex5}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle3_iu rateStarsStyle_iu_left1"
+                            bind:change="onChange5"
+                        />
+                        <text class="rateWordStyle3_iu rateWordStyle_iu_left2 rateWordStyle">休息时长</text>
+                        <van-rate
+                            value="{{starIndex6}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle3_iu rateStarsStyle_iu_left2"
+                            bind:change="onChange6"
+                        />
+                    </view>
+                    
+                    <!-- 男女比例+裁员情况 -->
+                    <view>
+                        <text class="rateWordStyle4_iu rateWordStyle_iu_left1 rateWordStyle">男女比例</text>
+                        <van-rate
+                            value="{{starIndex7}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle4_iu rateStarsStyle_iu_left1"
+                            bind:change="onChange7"
+                        />
+                        <text class="rateWordStyle4_iu rateWordStyle_iu_left2 rateWordStyle">裁员情况</text>
+                        <van-rate
+                            value="{{starIndex8}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            custom-class="rateStarsStyle4_iu rateStarsStyle_iu_left2"
+                            bind:change="onChange8"
+                        />
+                    </view>
+                    <view style="height: 200rpx;"></view>
                     <view class='select-kind-view'>
                         <view class="post_btn" bindtap='schoolSelectBtn'>
                             <text class="kind_text_active">完成</text>
@@ -305,9 +397,9 @@
             </view>
         </swiper-item>
 
+        <!--experience-->
         <swiper-item class="tab-box-item" wx:for="{{[2]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
             <view class="banner-box">
-                <!--experience-->
                 <view class="banner-box">
                     <!--add experience-->
                     <view id="basic" class="salary_view_show2">

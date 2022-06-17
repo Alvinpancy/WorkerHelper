@@ -70,3 +70,14 @@
     </navigator>
   </block>
 </view>
+
+<view>
+  <van-rate
+    value="{{value}}"
+    size="60rpx"
+    icon="like"
+    void-icon="like-o"
+    color="#B3B3B3"
+    bind:change="onChange"
+    />
+</view>

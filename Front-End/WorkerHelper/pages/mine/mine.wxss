@@ -358,83 +358,110 @@ left: 64%;
 /* 幸福指数字体 */
 .rateWordStyle{
   position: relative;
-  color: #0000006e;
-  font-weight: bold;
-  font-size: 25rpx;
+  color: #000000;
+  top: 24.5rpx;
+  bottom: 30rpx;
+  text-align: center;
+  font-family: 等线;
+  font-size: 33rpx;
+  color: rgb(0, 0, 0);
+  font-weight: bl;
 }
 
 .rateWordStyle1 {
-  left: 6%;
+  left: 20%;
+  
 }
 
 .rateWordStyle2 {
-  left: 37%;
+  left: 47%;
 }
 
 .rateWordStyle3 {
-  left: 6%;
-  top: 11rpx;
+  left: 20%;
+  top: 50rpx;
 }
 
 .rateWordStyle4 {
-  left: 37%;
-  top: 11rpx;
+  left: 47%;
+  top: 50rpx;
 }
+
+.rateWordStyle1_iu{  
+  top: -5rpx;
+}
+
+.rateWordStyle2_iu{ 
+  top: 35rpx;
+}
+.rateWordStyle3_iu{ 
+  top: 75rpx;
+}
+.rateWordStyle4_iu{ 
+  top: 115rpx;
+}
+.rateWordStyle_iu_left1{
+  left: 4%;
+}
+.rateWordStyle_iu_left2{
+  left: 33%;
+}
+/* 星级评价 */
 
 .rateStarsStyle1 {
   position: absolute;
   color: #0000006e;
-  left: 21%;
-  top: 7.6%;
+  left: 23%;
+  top: 40.5%;
 }
 
 .rateStarsStyle2 {
   position: absolute;
   color: #0000006e;
-  left: 66%;
-  top: 7.6%;
+  left: 70%;
+  top: 40.5%;
 }
 
 .rateStarsStyle3 {
   position: absolute;
   color: #0000006e;
-  left: 21%;
-  top: 13%;
+  left: 23%;
+  top: 47.5%;
 }
 
 .rateStarsStyle4 {
   position: absolute;
   color: #0000006e;
-  left: 66%;
-  top: 13%;
+  left: 70%;
+  top: 47.5%;
 }
 
 .rateStarsStyle_iu_left1{
   position: absolute;
   color: #0000006e;
-  left: 21%;
+  left: 23%;
 }
 
 .rateStarsStyle_iu_left2{
   position: absolute;
   color: #0000006e;
-  left: 66%;
+  left: 70%;
 }
 
 .rateStarsStyle1_iu {
-  top: 52.5px;
+  top: 140rpx;
 }
 
 .rateStarsStyle2_iu {
-  top: 88px;
+  top: 230.5rpx;
 }
 
 .rateStarsStyle3_iu {
-  top: 123.5px;
+  top: 321rpx;
 }
 
 .rateStarsStyle4_iu {
-  top: 159px;
+  top: 411.5rpx;
 }
 
 

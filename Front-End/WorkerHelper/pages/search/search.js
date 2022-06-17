@@ -11,7 +11,8 @@ Page({
         history: [],
         inputval:'',
         keyword: '',
-        hidden_search: true,          
+        hidden_search: true,
+        value:2.5,          
     },
     cache : [],
     onShareAppMessage: function () {
@@ -204,5 +205,12 @@ Page({
         wx.navigateTo({
           url: '../about/about'
         });
+    },
+    onChange(e) {
+      this.setData({
+        value:e.detail,
+      })
     }
 });
+
+

@@ -4,6 +4,13 @@ Page({
   data: {
     item: 0,
     tab: 0,
+    
+    starSize:'33rpx',
+    starIcon:'like',
+    starVoidIcon:'like-o',
+    starColor:'#ffd21e',
+    starGutter: '3rpx',
+    
     current: 'tab1',
     schoolBtn: 1,
     societyBtn: 0,
@@ -299,3 +306,5 @@ Page({
     })
   },
 })
+
+

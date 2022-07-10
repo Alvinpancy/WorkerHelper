@@ -14,7 +14,7 @@
   style="z-index: {{ zIndex }}; -webkit-transition-duration:{{ currentDuration }}ms; transition-duration:{{ currentDuration }}ms; {{ display ? '' : 'display: none;' }};{{ customStyle }}"
   bind:transitionend="onTransitionEnd"
 >
-  <slot />
+  <slot name="desc"></slot>
   <van-icon
     wx:if="{{ closeable }}"
     name="{{ closeIcon }}"

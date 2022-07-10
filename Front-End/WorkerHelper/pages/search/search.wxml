@@ -1,21 +1,78 @@
-<!-- 搜索输入区域 -->
-<view class='search-view'>
-  <input class='search-input' bindinput='searchInput'>
-  </input>
-  <button class='search-btn' bindtap='search'>
-    <text class='search-text'>查询</text>
-  </button>
+<view style ="height: 50rpx;"></view>
+
+
+  
+
+<!-- 标签页 -->
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">查公司</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">查城市</view>  
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">查岗位</view>  
+     
 </view>
 
-<!-- 搜索选择区域 -->
-<view class='search-navigator' hidden='{{hidden_search}}'>
-  <button class='navigator-left' bindtap='searchPost'>
-    <text>Post</text>
-  </button>
-  <button class='navigator-right' bindtap='searchUser'>
-    <text>User</text>
-  </button>
+<view style ="height: 50rpx;"></view>
+<!-- 搜索输入区域 -->
+<view class='input_info_view'>
+  <view class="content">
+    <van-icon name="search" class='search-icon' size="35rpx"/>
+    <input 
+      bindinput="handleInput"
+      bindconfirm="handleConfirm"
+      type="text"
+      value="{{inputValue}}" 
+      placeholder="{{placeholder}}"
+      placeholder-class="placeholder-class"
+      class="input"
+      confirm-type="search"
+    ></input>
+   
+  <!-- 清除输入框内容 -->
+    <van-icon name="cross"
+    wx:if="{{inputValue}}" 
+     bindtap="handleDeleteClick"
+     class="delete-icon"/>
+  </view>
 </view>
+
+<!-- 最近搜索 S -->
+<view class="headline" wx:if="{{historyStorage.length!=0}}" hidden="{{historyStorageShow?false:true}}">
+      <view class="head-headline justify">
+        <view class="headline-size">历史记录</view>
+        <view class="right size" catchtap="remove">清除</view>
+      </view>
+      <!-- 最近搜索内容 S -->
+      <view class="lately-main">
+        <view class="chunk" wx:for="{{historyStorage}}" wx:key="index" bindtap='routeToSearchResPage' data-index='{{index}}'>
+          <text>{{item}}</text>
+        </view>
+      </view>
+      <!-- 最近搜索内容 E -->
+</view>
+
+
+
+<!-- 滑动页面 -->
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+  <!-- list1  -->
+      <swiper-item>   
+       111
+      </swiper-item> 
+  <!-- list2  -->
+      <swiper-item>  
+       222
+      </swiper-item>  
+  <!-- list3  -->
+      <swiper-item>  
+       333
+      </swiper-item>  
+  </swiper>
+
+
+
+
+
+  
 
 <!-- 瀑布图 -->
 <view hidden='{{hidden_waterfall}}' class='content'>
@@ -71,13 +128,6 @@
   </block>
 </view>
 
-<view>
-  <van-rate
-    value="{{value}}"
-    size="60rpx"
-    icon="like"
-    void-icon="like-o"
-    color="#B3B3B3"
-    bind:change="onChange"
-    />
-</view>
+
+
+

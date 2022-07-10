@@ -1,0 +1,56 @@
+/* component/i-picker/i-picker.wxss */
+picker-view {
+    height: 500rpx;
+}
+/* // “取消，确定”按钮的样式 */
+.btns{
+    display: flex;
+    width: 94%;
+    padding: 0 25rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 1rpx solid #eee;
+    z-index: 10;
+    background-color: white;
+}
+.left-btn{
+    color:#a1a1a1
+}
+
+
+  
+ 
+
+/* // 顶部按钮高度是100rpx，absolute是不占据文档流的，所以要给顶部按钮保留出高度 */
+.picker-view-column{
+    border-radius: 30rpx 30rpx 0 0;
+    color: #B8B8B8;
+    font-size: 10rpx;
+    margin-top: 100rpx;
+    
+}
+/* // picker内容的样式 */
+.picketText{ 
+    line-height: 96rpx;
+    text-align: center;
+    color: #000000;
+    font-size: 32rpx;
+}
+.selected-text{
+    font-size: 50rpx;
+}
+
+.pickerCol {
+    width: 70%;
+    height: 96rpx;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(to right,#ffffff,#505050,#ffffff) 1 1;
+    margin-left:15%;
+    
+}
+  

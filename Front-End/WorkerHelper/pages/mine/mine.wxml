@@ -1,3 +1,4 @@
+<page-meta page-style="{{ show ? 'overflow: hidden;' : '' }}" />
 <view class="background" />
     <!-- 头像信息栏 -->
 <view class='uparea' style="height: 250rpx; display: block; box-sizing: border-box;">
@@ -46,22 +47,21 @@
     </scroll-view>
     <!-- 页面内容 -->
     <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+    
         <swiper-item class="tab-box-item" wx:for="{{[0]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
             <view class="banner-box">
+                <!-- 控制竖向滚动区域 -->
+                <scroll-view scroll-y="true" style="height: 95%;" bindscrolltoupper="upper" show-scrollbar="false" enhanced="true"
+                bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
                 <!--add salary-->
                 <view id="basic" class="salary_view_show">
                 <!-- 类型 -->
-                 <text class="salary-text">类型</text>
-                     <view class='select-kind-view'>  
-                        <view class="{{schoolBtn?'school_btn_active':'school_btn_default'}} type_btn" bindtap='schoolSelectBtn' >
-                            <text class="{{schoolBtn?'kind_text_active':'kind_text_default'}}">校招</text>
-                        </view>
-                        <view class="{{societyBtn?'society_btn_active':'society_btn_default'}} type_btn" bindtap='societySelectBtn'>
-                            <text class="{{societyBtn?'kind_text_active':'kind_text_default'}}">社招</text>
-                        </view>
-                        <view class="{{internBtn?'intern_btn_active':'intern_btn_default'}} type_btn" bindtap='internSelectBtn'>
-                            <text class="{{internBtn?'kind_text_active':'kind_text_default'}}">实习</text>
-                        </view>
+                 <text class="text-position salary-text">类型</text>
+                    <view class="tab-controller">
+                        <block wx:for="{{titles}}" wx:key="*this">
+                        <view bind:tap="catchButton" id="{{index}}" class='type_btn {{currentIndex == index ? "btn_active" : ""}}'>
+                        <text>{{item}}</text></view>
+                        </block>
                     </view>
                     <!-- 公司 -->
                     <view class='input_info_view'>
@@ -75,60 +75,56 @@
                         <input class="salary_input_area input_box" bindinput='positionInput'>
                         </input>
                     </view>
-                    <!-- 城市+行业 -->
+
+                    <!-- 行业 -->
+                    <view class='input_info_view'>
+                        <text class="salary-text" >行业</text>
+                        <view class="salary_input_area input_box" bindtap="showPickerInd">
+                                {{selIndustry}}       
+                        </view>  
+                        <van-icon name="arrow-down" class="selectIcon"/>  
+                    </view>
+                    <!-- 城市+学历 -->
                     <view class='input_info_view'>
                         <text class="salary-text">城市</text>
                         <input class="salary_input_city_area input_box" bindinput='cityInput'>
                         </input>
-                        <text class="salary_prof_text">行业</text>
-                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
-                            <view class="salary_input_prof_area input_box">
-                                {{category[cateIndex]}}
-                                <text class="selectChara">⌄</text>
-                            </view>
-                        </picker>
+                        <text class="salary_prof_text">学历</text>
+                        <view class="salary_input_prof_area input_box" bindtap="showPickerEdu">
+                        {{selEducation}}    
+                            
+                        </view>
+                        <van-icon name="arrow-down" class="selectIcon" />    
                     </view>
+
                     <!-- 薪资 -->
                     <view class='input_info_view'>
                         <text class="salary-text">薪资</text>
-                        <input class="salary_input_monthMoney_area input_box" bindinput='salaryMonthMoneyInput'></input>
-                        <view class="salary_input_monthMoney_area input_box">
-                            <text class="salary_show0_text_default show_text_default">K</text>
-                        </view>
-                        <text class="multiply_positoin salary-text">X</text>
-                        <input class="salary_input_monthNum_area input_box" bindinput='salaryMonthNumInput'></input>
-                        <view class="salary_input_monthNum_area input_box">
-                            <text class="salary_show_text_default show_text_default">薪</text>
-                        </view>
-                        <view class="salary_get_area input_box"></view>
+                        <input class="salary_input_monthMoney_area" maxlength="4"
+                        bindinput='salaryMonthMoneyInput'></input>
+                        <text class="salary_Month_text_default show_text_default">K</text>
+                        
+                        <text class="multiply_positoin show_text_default">X</text>
+                        <input class="salary_input_monthNum_area input_box"  
+                        maxlength="3"
+                        bindinput='salaryMonthNumInput'></input>
+                        <text class="salary_show_text_default show_text_default">薪</text>
+                        
+                        
                         <text class="salary_num_get_text">年薪</text>
                         <input class="salary_get_area input_box" bindinput='salaryYearMoneyInput'></input>
-                        <view class="salary_get_area input_box">
-                            <text class="salary_show0_text_default show_text_default">W</text>
-                        </view>
+                        <text class="salary_show0_text_default show_text_default">W</text>
+                        
+                        
                     </view>
-                    <!-- 学历+资质 -->
-                    <view class='input_info_view'>
-                        <text class="salary-text" >学历</text>
-                        <text class="salary_prof_text">资质</text>
-                        <picker bindchange="changeTitle" value="{{titleIndex}}" range="{{title}}">
-                            <view class="salary_input_city_area input_box">
-                                {{category[cateIndex]}}
-                                <text class="selectChara">⌄</text>
-                            </view>
-                        </picker>
-                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
-                            <view class="salary_input_prof_area input_box">
-                                {{category[cateIndex]}}
-                                <text class="selectChara">⌄</text>
-                            </view>
-                        </picker>
-                    </view>
+
+                    
                     <view class='divide_view'>
                     </view>
                 </view>
                 <!--add happniess-->
                 <view id="basic" class="salary_view_show2">
+                    <view style="height:20rpx"></view>
                     <view class='select-kind-view'>
                         <text class="salary-text happiness_num_text">iU指数 (幸福指数)</text>
                     </view>
@@ -141,148 +137,43 @@
                     <view class='input_info_view'>
                         <text class="salary-text">工作时长</text>
                         <input class="workHours_input_area input_box" bindinput='salaryMonthMoneyInput'></input>
-                        <view class="workHours_input_area input_box">
-                            <text class="workHours_show_text_default show_text_default">时/天</text>
-                        </view>
+                        
+                        <text class="salary_show_text_default show_text_default">时/天</text>
+                        
                         <text class="multiply_positoin_iu salary-text">X</text>
                         <input class="workDaysNum_input_area input_box" bindinput='salaryMonthNumInput'></input>
-                        <view class="workDaysNum_input_area input_box">
-                            <text class="workHours_show_text_default show_text_default">天/周</text>
-                        </view>
+                        
+                        <text class="salary_show0_text_default show_text_default">天/周</text>
+                        
                     </view>
                     <!-- 休息时长 -->
                     <view class='input_info_view'>
                         <text class="salary-text">休息时长</text>
                         <input class="restHours_input_area input_box" bindinput='cityInput'>
-                        <view class="workDaysNum_input_area input_box">
-                            <text class="restHours_show_text_default show_text_default">时/天</text>
-                        </view>
                         </input>
+                        <text class="salary_show0_text_default show_text_default">时/天</text>
                     </view>
                     <!-- 男女比例 -->
                     <view class='input_info_view'>
                         <text class="salary-text">男女比例</text>
-                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
-                            <view class="restHours_input_area input_box">
-                                {{category[cateIndex]}}
-                                <text class="selectsexRate">⌄</text>
-                            </view>
-                        </picker>
+                        <view class="restHours_input_area input_box" bindtap="showPickerSex">
+                                {{selSex}}        
+                        </view>
+                        <van-icon name="arrow-down" class="selectIcon" />
                     </view>
                     <!-- 裁员情况 -->
                     <view class='input_info_view'>
                         <text class="salary-text">裁员情况</text>
-                        <picker mode="selector" bindchange="changeCate" value="{{cateIndex}}" range="{{category}}">
-                            <view class="restHours_input_area input_box">
-                                {{category[cateIndex]}}
-                                <text class="selectsexRate">⌄</text>
-                            </view>
-                        </picker>
-                    </view>
-                    <!-- <view style="height: 8px;"></view> -->
-                    <view>       
-                        <van-row >
-                            <van-col span="5">
-                                <text class="rateWordStyle1 rateWordStyle" >交通便捷</text>
-                            </van-col>
-                            <van-col span="8" offset="5">
-                                <van-rate
-                                        value="{{starIndex1}}"
-                                        size="{{starSize}}"
-                                        icon="{{starIcon}}"
-                                        void-icon="{{starVoidIcon}}"
-                                        color="{{starColor}}"
-                                        gutter="{{starGutter}}"
-                                        custom-class="rateStarsStyle1"
-                                        bind:change="onChange1"
-                                />
-                            </van-col>
-
-                            <van-col span="5" offset="5">
-                                <text class="rateWordStyle2 rateWordStyle">工作环境</text>
-                            </van-col>
-                            <van-col span="8" offset="5">
-                                
-                                <van-rate
-                                        value="{{starIndex2}}"
-                                        size="{{starSize}}"
-                                        icon="{{starIcon}}"
-                                        void-icon="{{starVoidIcon}}"
-                                        color="{{starColor}}"
-                                        gutter="{{starGutter}}"
-                                        custom-class="rateStarsStyle2"
-                                        bind:change="onChange2"
-                                />
-                            </van-col>
-                        </van-row>
                         
-                        
-                        <van-row >
-                            <van-col span="5">
-                                <text class="rateWordStyle3 rateWordStyle" >同事环境</text>
-                            </van-col>
-                            <van-col span="8" offset="5">
-                                <van-rate
-                                        value="{{starIndex3}}"
-                                        size="{{starSize}}"
-                                        icon="{{starIcon}}"
-                                        void-icon="{{starVoidIcon}}"
-                                        color="{{starColor}}"
-                                        gutter="{{starGutter}}"
-                                        custom-class="rateStarsStyle3"
-                                        bind:change="onChange3"
-                                />
-                            </van-col>    
-                            <van-col span="5" offset="5">
-                                <text class="rateWordStyle4 rateWordStyle" >成就感</text>
-                            </van-col>
-                            <van-col span="8" offset="5">
-                                <van-rate
-                                        value="{{starIndex4}}"
-                                        size="{{starSize}}"
-                                        icon="{{starIcon}}"
-                                        void-icon="{{starVoidIcon}}"
-                                        color="{{starColor}}"
-                                        gutter="{{starGutter}}"
-                                        custom-class="rateStarsStyle4"
-                                        bind:change="onChange4"
-                                />
-                            </van-col>
-                        </van-row> 
-                    </view> 
-                    <view style="height: 50rpx;"></view>
-                    <!-- 备注信息 -->
-                    <text class="salary-text">备注信息</text>
-                    <view class='input_info_view'>
-                            <input class="remarks_input_area_input" bindinput='cityInput'>
-                            <view class="remarks_input_area_view">
-                                <text class="remarks_show_text_default">福利、996工作情况等</text>
-                            </view>
-                            </input>   
+                        <view class="restHours_input_area input_box" bindtap="showPickerSta">
+                                {{selStability}}       
+                        </view> 
+                        <van-icon name="arrow-down" class="selectIcon" />   
                     </view>
-                    <!-- 发布 -->
-                    <view class='divide_view_iu'>
-                    </view>
-                    <view class='select-kind-view'>
-                        <view class="post_btn" bindtap='schoolSelectBtn'>
-                            <text class="kind_text_active">发布</text>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </swiper-item>
-        <!--modify happniess-->
-        <swiper-item class="tab-box-item" wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
-            <view class="banner-box">
-                <view id="basic" class="salary_view_show2">
-                    <view class='select-kind-view'>
-                        <text class="salary-text happiness_num_text">生成专属iU指数</text>
-                        <text class="happinessWordStyle">重视程度</text>
-                    </view>
-                    <view style="height: 50rpx;"></view>
-                    <!-- 交通+工作环境 -->
-                    <view>
-                        <text class="rateWordStyle1_iu  rateWordStyle_iu_left1 rateWordStyle">交通便捷</text>
+                    <view style="height: 10rpx;"></view>
+                    <!-- 交通便捷+工作环境 -->
+                    <view class='input_info_view'>        
+                        <text class="salary-text" >交通便捷</text>
                         <van-rate
                             value="{{starIndex1}}"
                             size="{{starSize}}"
@@ -290,10 +181,12 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle1_iu rateStarsStyle_iu_left1"
+                            count="{{starCount}}"
+                            class="rateStarsStyle1"
                             bind:change="onChange1"
                         />
-                        <text class="rateWordStyle1_iu rateWordStyle_iu_left2 rateWordStyle">工作环境</text>
+           
+                        <text class="rateWordStyle salary-text">工作环境</text>        
                         <van-rate
                             value="{{starIndex2}}"
                             size="{{starSize}}"
@@ -301,15 +194,14 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle1_iu rateStarsStyle_iu_left2"
+                            count="{{starCount}}"
+                            class="rateStarsStyle2"
                             bind:change="onChange2"
-                        />
+                        />       
                     </view>
-                    
-                    <!-- 同事环境+成就感 -->
-                    
-                    <view>
-                        <text class="rateWordStyle2_iu rateWordStyle_iu_left1 rateWordStyle">同事环境</text>   
+                        
+                    <view class='input_info_view'>        
+                        <text class="salary-text" >同事环境</text>
                         <van-rate
                             value="{{starIndex3}}"
                             size="{{starSize}}"
@@ -317,11 +209,110 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle2_iu rateStarsStyle_iu_left1"
+                            count="{{starCount}}"
+                            class="rateStarsStyle1"
+                            bind:change="onChange3"
+                        />
+                               
+                        <text class="rateWordStyle salary-text" space="emsp">成就感 </text>  
+                        <van-rate
+                            value="{{starIndex4}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            count="{{starCount}}"
+                            class="rateStarsStyle2"
+                            bind:change="onChange4"
+                        />
+                            
+                    </view> 
+                     
+                    <view style="height: 20rpx;"></view>
+                    <!-- 备注信息 -->
+                    <text class="text-position salary-text">备注信息</text>
+                    <view class='divide_view_iu'>
+                        <textarea class="remarks_input_area_input" bindinput='getDataBindTap'
+                        maxlength="200" placeholder="福利、996工作情况等"
+                        placeholder-class="textarea-placeholder"
+                        name="information" value="{{information}}"
+                        show-confirm-bar="{{false}}">
+                        <view class='word' id="counter">{{lastArea}}/200</view>
+                        </textarea>
+                    </view>
+                              
+                    <view style="height:30rpx"></view>
+                    <!-- 发布 -->
+                    
+                    <view class='btn-position input_info_view'>
+                        <view class="post_btn btn_active" bindtap='schoolSelectBtn'>
+                            <text>发布</text>   
+                        </view>
+                    </view>
+                    <view style="height:30rpx"></view>
+                </view>
+                </scroll-view>
+            </view>
+        </swiper-item>
+        <!--modify happniess-->
+        <swiper-item class="tab-box-item" wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" wx:key="idx" class="tab-content">
+            <view class="banner-box">
+                <view id="basic" class="salary_view_show2">
+                    <view style="height:30rpx"></view>
+                    <view class="select-kind-view">
+                        <text class="happiness_num_text salary-text ">生成专属iU指数</text>
+                        <text class="happinessWordStyle">重视程度</text>
+                    </view>
+                    <view style="height: 20rpx;"></view>
+                    <!-- 交通+工作环境 -->
+                    
+                    <view class="input_info_view">
+                        <text class="salary-text">交通便捷</text>
+                        <van-rate
+                            value="{{starIndex1}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            count="{{starCount}}"
+                            class="rateStarsStyle1"
+                            bind:change="onChange1"
+                        />
+                        <text class="rateWordStyle salary-text">工作环境</text>
+                        <van-rate
+                            value="{{starIndex2}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            count="{{starCount}}"
+                            class="rateStarsStyle2"
+                            bind:change="onChange2"
+                        />
+                    </view>
+                    
+                    
+                    <!-- 同事环境+成就感 -->
+                    
+                    
+                    <view class="input_info_view">
+                        <text class="salary-text">同事环境</text>   
+                        <van-rate
+                            value="{{starIndex3}}"
+                            size="{{starSize}}"
+                            icon="{{starIcon}}"
+                            void-icon="{{starVoidIcon}}"
+                            color="{{starColor}}"
+                            gutter="{{starGutter}}"
+                            count="{{starCount}}"
+                            class="rateStarsStyle1"
                             bind:change="onChange3"
                         />
                             
-                        <text class="rateWordStyle2_iu rateWordStyle_iu_left2 rateWordStyle">成就感</text>
+                        <text class="rateWordStyle salary-text" space="emsp">成就感 </text>
                             
                             
                         <van-rate
@@ -331,14 +322,16 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle2_iu rateStarsStyle_iu_left2"
+                            count="{{starCount}}"
+                            custom-class="rateStarsStyle2"
                             bind:change="onChange4"
                         />
                     </view>
                     
+                    
                     <!-- 工作时长+休息时长 -->
-                    <view>
-                        <text class="rateWordStyle3_iu rateWordStyle_iu_left1 rateWordStyle">工作时长</text>
+                    <view class="input_info_view">
+                        <text class="salary-text">工作时长</text>
                         <van-rate
                             value="{{starIndex5}}"
                             size="{{starSize}}"
@@ -346,10 +339,11 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle3_iu rateStarsStyle_iu_left1"
+                            count="{{starCount}}"
+                            class="rateStarsStyle1"
                             bind:change="onChange5"
                         />
-                        <text class="rateWordStyle3_iu rateWordStyle_iu_left2 rateWordStyle">休息时长</text>
+                        <text class="rateWordStyle salary-text">休息时长</text>
                         <van-rate
                             value="{{starIndex6}}"
                             size="{{starSize}}"
@@ -357,14 +351,15 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle3_iu rateStarsStyle_iu_left2"
+                            count="{{starCount}}"
+                            class="rateStarsStyle2"
                             bind:change="onChange6"
                         />
                     </view>
                     
                     <!-- 男女比例+裁员情况 -->
-                    <view>
-                        <text class="rateWordStyle4_iu rateWordStyle_iu_left1 rateWordStyle">男女比例</text>
+                    <view class="input_info_view">
+                        <text class="salary-text">男女比例</text>
                         <van-rate
                             value="{{starIndex7}}"
                             size="{{starSize}}"
@@ -372,10 +367,11 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle4_iu rateStarsStyle_iu_left1"
+                            count="{{starCount}}"
+                            class="rateStarsStyle1"
                             bind:change="onChange7"
                         />
-                        <text class="rateWordStyle4_iu rateWordStyle_iu_left2 rateWordStyle">裁员情况</text>
+                        <text class="rateWordStyle salary-text">裁员情况</text>
                         <van-rate
                             value="{{starIndex8}}"
                             size="{{starSize}}"
@@ -383,16 +379,18 @@
                             void-icon="{{starVoidIcon}}"
                             color="{{starColor}}"
                             gutter="{{starGutter}}"
-                            custom-class="rateStarsStyle4_iu rateStarsStyle_iu_left2"
+                            count="{{starCount}}"
+                            class="rateStarsStyle2"
                             bind:change="onChange8"
                         />
                     </view>
-                    <view style="height: 200rpx;"></view>
-                    <view class='select-kind-view'>
-                        <view class="post_btn" bindtap='schoolSelectBtn'>
-                            <text class="kind_text_active">完成</text>
+                    <view style="height: 100rpx;"></view>
+                    <view class='btn-position  input_info_view'>
+                        <view class="post_btn btn_active" bindtap='schoolSelectBtn'>
+                            <text >完成</text>
                         </view>
                     </view>
+                    <view style="height: 30rpx;"></view>
                 </view>          
             </view>
         </swiper-item>
@@ -424,7 +422,41 @@
                         </view>
                     </view>
                 </view>
+                
             </view>
         </swiper-item>
     </swiper>
 </view>
+<!-- 行业选择器 -->
+<i-picker id='ind-picker'
+        
+        show="{{showInd}}"
+        category= "{{cateIndustry}}"
+        bind:cancelEvent="onCloseInd"
+        bind:confirmEvent="onConfirmInd">
+</i-picker>
+<!-- 学历选择器 -->
+<i-picker id='edu-picker'
+        show="{{showEdu}}"
+        category= "{{cateEducation}}"
+        bind:cancelEvent="onCloseEdu"
+        bind:confirmEvent="onConfirmEdu">
+</i-picker>
+<!-- 男女比例选择器 -->
+<i-picker id='sex-picker'
+        show="{{showSex}}"
+        category= "{{cateSex}}"
+        bind:cancelEvent="onCloseSex"
+        bind:confirmEvent="onConfirmSex">
+</i-picker>
+<!-- 裁员情况选择器 -->
+<i-picker id='sta-picker'
+        show="{{showSta}}"
+        category= "{{cateStability}}"
+        bind:cancelEvent="onCloseSta"
+        bind:confirmEvent="onConfirmSta">
+</i-picker>
+
+
+
+

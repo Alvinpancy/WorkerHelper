@@ -1,7 +1,10 @@
 {
   "usingComponents": {
-    "i-rate": "../../dist/rate/index"
+    "i-rate": "../../dist/rate/index",
+    "i-picker":"/component/i-picker/i-picker"
+    
   },
+  
   "navigationBarTitleText": "个人主页",
   "navigationStyle": "custom"
 }

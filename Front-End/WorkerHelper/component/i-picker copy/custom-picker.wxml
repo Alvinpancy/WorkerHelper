@@ -1,0 +1,15 @@
+<!--component/i-picker/i-picker.wxml-->
+
+
+
+<van-popup show="{{show}}" round position="bottom" custom-style="height: 40%"  safe-area-inset-top ="{{true}}" close-on-click-overlay="{{true}}" bindclose="bindClose">
+    <!-- slot 单列选择器 -->
+    <view slot="desc">
+        <van-picker columns="{{category}}" 
+                show-toolbar="{{true}}"
+                bind:confirm="onConfirm"
+                bind:cancel="onClose">{{item}}
+                </van-picker>
+    </view>
+    
+</van-popup>

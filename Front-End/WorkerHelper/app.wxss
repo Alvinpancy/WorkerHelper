@@ -1,57 +1,46 @@
 /**app.wxss**/
 @import 'weui.wxss';
 @import 'global.wxss';
+@import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+
 page{
   position: relative;
   font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;   overflow-y: scroll;
   background: #ffffff;
+
+  /* 通用变量 */
+
+  --margin-right:5rpx;
+  --font-size-1:30rpx;
+  --box-height:72rpx;
+  --box-radius:36rpx;
+  --box-margin-top:10rpx;
+  --box-background-color:rgb(244, 244, 244);
+
+  --text-default-color: #0000006e;
+
 }
 
-/*.container {
-  height: 100%;
+/* 横向布局 */
+.input_info_view { 
+  height: var(--box-height);
+  position: relative;
+  margin-top:var(--box-margin-top);
+  
+  justify-content:flex-start;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
 
-time{
-  display: block;
-  font-size: 32rpx;
-  color: gray;
-  text-align: right;
+  padding-left: var(--text-left);
+  padding-right: var(--box-right);
 }
 
-
-.bottom{
-  position: fixed;
-  display: -webkit-flex;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  box-shadow: 0 -2px 2px gray;
+/* input中默认字体 */
+.show_text_default{
+  position: absolute;
+  line-height: var(--box-height);
+  color: var(--text-default-color);
+  font-weight: bold;
+  font-size: 30rpx;
+  z-index: 999;
 }
-.bottom .btn{
-    flex: 1 0 0;
-    display: -webkit-flex;
-    justify-content: center;
-    align-items: center;  
-}
-
-.btn.curr{
-    border-top: 8rpx dodgerblue solid;  
-    color: dodgerblue;
-}
-
-.btn.good{
-    color: white;
-    background: dodgerblue;
-}
-.btn.bad{
-    color: black;
-    background: ghostwhite;
-}
-*/

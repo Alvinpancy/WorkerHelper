@@ -1,0 +1,13 @@
+<view class='mask' wx:if="{{isShow}}" catchtap="cancel">
+	<view class="content" style="height:500rpx" animation="{{animation}}">
+		<view class="top">
+			<view class="top-text top-left-color" hover-class="top-left-color-hover" catchtap="lefttap">全部</view>
+			<view class="top-text top-right-color" hover-class="top-right-color-hover" catchtap="righttap">确定</view>
+		</view>
+		<picker-view style="width: 100%; height: 500rpx;" value="{{value}}" bindchange="bindChange" catchtap="no">
+			<picker-view-column>
+				<view wx:for="{{years}}" style="line-height: 50px" class="item">{{item}}年</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>

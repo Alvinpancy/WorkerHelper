@@ -1,4 +1,5 @@
-var app = getApp();
+const app = getApp()
+var that
 Page({
     data: {
         ads: [],
@@ -12,7 +13,20 @@ Page({
         inputval:'',
         keyword: '',
         hidden_search: true,
-        value:2.5,          
+         
+       
+        // 标签页选项
+        currentTab: 0,
+        // 搜索框
+        inputValue:'',
+        placeholder:'请输入内容',
+        
+        // 历史记录
+        historyStorage: [],
+        historyStorageShow: false,
+        inputValue: "",        //输入框输入的值
+        replaceValue: "",
+              
     },
     cache : [],
     onShareAppMessage: function () {
@@ -32,8 +46,26 @@ Page({
       };
     },    
     onLoad: function(options) {
+       // 历史搜索
+      let that = this
+      wx.getStorage({
+        key: 'historyStorage',
+        success: function (res) {
+          console.log(res.data)
+          that.setData({
+            historyStorageShow: true,
+            historyStorage: res.data
+          })
+        }
+      })
+  },
+  //点击进入详情页
+  goToList: function (e) {
     
-    },
+  },
+
+
+  
     onShow: function(){
     // 页面初始化 options为页面跳转所带来的参数 
         if (app.globalData.needReq || this.cache.length < 1) {
@@ -46,7 +78,8 @@ Page({
           })
           this.setData({
             'history':wx.getStorageSync('history') || []
-          });      
+          }); 
+              
         }
         /*
         this.getInfo([app.globalData.domain, 'webapi', this.data.kind, ''].join('/'), {});
@@ -206,11 +239,99 @@ Page({
           url: '../about/about'
         });
     },
-    onChange(e) {
+    
+    bindChange:function(e){
+      var that = this;
+      that.setData({ currentTab: e.detail.current });
+    },
+
+    swichNav: function (e) {
+
+      var that = this;
+      if (this.data.currentTab === e.target.dataset.current) {
+        return false;
+      } else {
+        that.setData({
+          currentTab: e.target.dataset.current
+        })
+      }
+    },
+
+     // 用户输入触发
+     handleInput: function(e) {
       this.setData({
-        value:e.detail,
+        inputValue: e.detail.value
       })
-    }
+    },
+    // 点击清空输入框icon
+    handleDeleteClick: function() {
+      this.setData({
+        inputValue: ''
+      })
+    },
+
+    // 清除历史记录
+    remove: function () {
+    var _this = this
+    wx: wx.showModal({
+      content: '确认清除所有历史记录?',
+      success: function (res) {
+        if (res.confirm) {
+          wx: wx.removeStorage({
+            key: 'historyStorage',
+            success: function (res) {
+              _this.setData({
+                historyStorage: []
+              })
+              wx.setStorageSync("historyStorage", [])
+            },
+          })
+        } else {
+          console.log("点击取消")
+        }
+      },
+    })
+  },
+ 
+ 
+  /**
+   * 获取input的值
+   */
+  getInputValue(e) {
+    // console.log("获取value值",e.detail)   // {value: "ff", cursor: 2}
+    this.setData({
+      inputValue: e.detail.value
+    })
+    this.setData({
+      searchresult: true,
+    })
+  },
+   /**
+   * 点击搜索提交跳转并存储历史记录
+   */
+  searchbegin: function (e) {
+    let _this = this
+    var data = e.currentTarget.dataset;
+    _this.data.replaceValue = e.currentTarget.dataset.postname
+    // _this.data.replaceValue = 
+    wx: wx.setStorage({
+      key: 'historyStorage',
+      data: _this.data.historyStorage.concat(_this.data.inputValue),
+      data: _this.data.historyStorage.concat(_this.data.replaceValue)
+    })
+    // console.log(_this.data.inputValue)
+    // console.log(_this.data.historyStorage)
+    wx.navigateTo({
+      url: '../../commodity/commodity-search-list/index?postName=' + data['postname']
+    })
+  },
+
+
+
+  
+    
+    
+
 });
 
 

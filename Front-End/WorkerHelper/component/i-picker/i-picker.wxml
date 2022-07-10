@@ -1,0 +1,25 @@
+<!--component/i-picker/i-picker.wxml-->
+
+
+
+<van-popup show="{{show}}" round position="bottom" custom-style="height: 600rpx" 
+overlay="{{true}}" close-on-click-overlay="{{ true }}"   bindclose="bindClose">
+    <!-- slot 单列选择器 -->
+    <view slot="desc" class="flex column full-width full-height">
+        <picker-view indicator-class="pickerCol" style= "height:500rpx"  
+         bindchange="bindChange">
+	        <view class='btns'>
+    	        <view class='left-btn' bindtap="onClose">取消</view>
+                <view bindtap="onConfirm">确认</view>
+	        </view>
+            <!-- 选项 -->
+            <picker-view-column class="pickerColumn">
+    	        <view wx:for="{{category}}"
+                class="picketText">{{item}}
+                    
+                </view>			
+            </picker-view-column>
+        </picker-view>
+    </view>
+    
+</van-popup>

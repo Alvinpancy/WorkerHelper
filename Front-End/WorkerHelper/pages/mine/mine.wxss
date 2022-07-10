@@ -1,3 +1,12 @@
+page{
+  --text-left:30rpx;
+  --box-right:30rpx;
+  --box-left:106rpx;
+  --box-left2:170rpx
+}
+
+
+
 .background {
   width: 100%;
   height: 100%;
@@ -163,72 +172,57 @@
 }
 
 .tab-content {
-  overflow-y: scroll;
+  overflow-y: hidden;
   border-radius: 20px;
   display: flex;
 }
 
 .banner-box {
   width: 100%;
-  height: 100%;
+  height: 70%;
   border-radius: 20px;
 }
-/* 字体 */
-.salary-text {
-  position: relative;
-  width: 200rpx;
-  top: 24.5rpx;
-  left: 30rpx;
-  bottom: 30rpx;
-  text-align: center;
-  font-family: 等线;
-  font-size: 33rpx;
-  color: rgb(0, 0, 0);
-  font-weight: bl;
-}
 
-.salary_prof_text {
-  position: relative;
-  width: 200rpx;
-  top: 24.5rpx;
-  left: 42%;
-  bottom: 30rpx;
-  text-align: center;
-  font-family: 等线;
-  font-size: 33rpx;
-  color: black;
+
+
+/* 类型视图 */
+.tab-controller {
+  
+  display: flex;
+  height: var(--box-height);
+  /* 垂直方向居中 */
+  line-height: var(--box-height);  
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: var(--text-left);
+  padding-right: var(--box-right);
   
 }
 
-.salary_num_get_text {
+
+/* 类型选项按钮 */
+.type_btn{
   position: relative;
   width: 200rpx;
-  top: 24.5rpx;
-  left: 50%;
-  bottom: 30rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  line-height: 64rpx;
   text-align: center;
-  font-family: 等线;
-  font-size: 33rpx;
-  color: black;
+  align-content: center;
+  background-color: rgb(240, 240, 240);
+
+  color: #0000006e;
+  font-weight: normal;
+  font-size: var(--font-size)
 }
 
-.happiness_num_text{
-  font-size: 40rpx;
-  font-family: 微软雅黑;
+.btn_active {
+  
+  background-color: rgb(0, 0, 0);
+  color:#ffffff;
   font-weight: bold;
-}
-
-
-.select-kind-view {
-  width: 750rpx;
-  height: 90rpx;
-  position: relative;
-}
-
-.input_info_view {
-  width: 750rpx;
-  height: 80rpx;
-  position: relative;
+  font-size: 35rpx;
 }
 
 .divide_view {
@@ -238,357 +232,275 @@
 }
 
 .divide_view_iu {
-  width: 750rpx;
-  height: 300rpx;
+ 
+  height: 400rpx;
   position: relative;
+  display: flex;
+  
+  align-items: center;
 }
 
-
-.type_btn{
-  position: absolute;
-  width: 27%;
-  height: 65rpx;
-  border-radius: 40rpx;
-  line-height: 65rpx;
-  text-align: center;
-  align-content: center;
-  top: 25rpx;
-}
-.school_btn_default {
-  left: 4%;
-  background-color: rgb(240, 240, 240);
-}
-
-.school_btn_active {
-  left: 4%;
-  background-color: rgb(0, 0, 0);
-}
-.society_btn_default {
-  left: 34%;
-  background-color: rgb(240, 240, 240);
-}
-
-.society_btn_active {
-  left: 34%;
-  background-color: rgb(0, 0, 0);
-}
-
-.intern_btn_default {
-  left: 64%;
-  background-color: rgb(240, 240, 240); 
-}
-
-.intern_btn_active {
-  left: 64%;
-  background-color: rgb(0, 0, 0);
-}
-
-.kind_text_default {
-  color: #0000006e;
-  font-weight: normal;
-  font-size: 35rpx;
-}
-
-.kind_text_active {
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 35rpx;
-}
-
-.post_btn {
+.select-kind-view{
+  height: var(--box-height);
   position: relative;
-  left: 24%;
-  background-color: rgb(0, 0, 0);
-  width: 45%;
-  bottom: 30%;
-  height: 60rpx;
-  border-radius: 30rpx;
-  line-height: 55rpx;
-  text-align: center;
-  align-content: center;
+  margin-top:var(--box-margin-top);
+  
+  justify-content:flex-start;
+  display: flex;
+  align-items: center;
+
+  padding-left: var(--text-left);
+  padding-right: var(--box-right);
 }
 
-.show_text_default{
-  position: absolute;
-  color: #0000006e;
+/* 字体 */
+.salary-text {
+  position: relative;
+  height: var(--box-height);
+  display: flex;
+  align-items: center;
+  
+  font-size: var(--font-size-1);
+  color: rgb(0, 0, 0);
+  font-weight: bl;
+}
+
+.text-position{
+  left:var(--text-left)
+}
+.salary_prof_text {
+  position: relative;
+  left: 42%;
+  height: var(--box-height);
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-1);
+  color: black;
+  
+}
+
+.salary_num_get_text {
+  position: relative;
+  left: 52%; 
+  height: var(--box-height);
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-1);
+  color: black;
+}
+/* 幸福指数 */
+.happiness_num_text{
+  font-size: 40rpx;
+  font-family: 微软雅黑;
   font-weight: bold;
-  font-size: 30rpx;
+  
 }
 
+
+/* 输入框 */
+
+.input_box{
+  position: absolute;
+  background-color: var(--box-background-color);
+  height: var(--box-height);
+  border-radius: var(--box-radius);
+  line-height: var(--box-height);
+  text-align: center;
+  align-content: flex-start;
+  font-size: 33rpx;
+  font-weight: 600;
+  margin-left: 5rpx;
+  
+  
+}
+
+.salary_input_area {
+  right:var(--box-right);
+  left:var(--box-left)
+  
+}
+/* 城市 */
+.salary_input_city_area {   
+  left:var(--box-left);
+  width: 230rpx;
+}
+/* 学历 */
+.salary_input_prof_area { 
+  right:var(--box-right);
+  width: 240rpx;
+}
+
+
+/* 薪资 */
+.salary_input_monthMoney_area {
+  position: absolute;
+  left: var(--box-left);
+  width: 26%;
+  height: var(--box-height);
+  border-radius: var(--box-radius);
+  background-color: var(--box-background-color);
+  font-size: 33rpx;
+  font-weight: 600;
+  margin-left: 5rpx;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 30rpx;
+}
+
+.salary_input_monthNum_area {
+  left: 35%;
+  right: 42%;
+}
+/* 年薪 */
+.salary_get_area {
+  right:var(--box-right);
+  width: 25%;
+}
+
+.workHours_input_area {
+  left: var(--box-left2);
+  right: 42%;
+}
+
+.workDaysNum_input_area {
+  right:var(--box-right);
+  width: 32%;
+}
+
+.restHours_input_area {
+  left: var(--box-left2);
+  right: var(--box-right)
+}
+
+
+/* input中的单位 */
+
+.salary_Month_text_default{
+  left:32%
+}
 .salary_show_text_default {
-  left: 64%;
+  right: 45%;
 }
 
 .salary_show0_text_default {
-  left: 72%;
+  right:50rpx
 }
 
 .workHours_show_text_default {
-left: 64%;
+left: 200rpx;
 }
 
 .restHours_show_text_default {
   left: 74%;
   top: -35%;
 }
-
+/* 乘号 */
 .multiply_positoin {
-  color: #0000006e;
-  left: 27%;
-  width: 20%;
+  color: #9797976e;
+  left: 37%;
+  
   font-weight: 700;
 }
 
 .multiply_positoin_iu {
   color: #0000006e;
-  left: 37%;
-  width: 20%;
+  left: 270rpx;
+  
   font-weight: bold;
 }
 
+
+/* 星级评价字体 */
+.rateWordStyle{
+  left: 50rpx
+}
+
+/* 星级评价 */
+
+.rateStarsStyle1 {
+  position: relative;
+  color: #0000006e;
+  left: 20rpx;
+  padding-top: 6rpx;
+  align-items: center;
+}
+
+.rateStarsStyle2 {
+  position: relative;
+  color: #0000006e;
+  padding-top: 6rpx;
+  align-items: center;
+  right: -70rpx
+  
+}
+
+/* 备注 */
+.remarks_input_area_input {
+  position: absolute;
+  left: var(--text-left);
+  width:615rpx;
+  background-color:var(--box-background-color);
+  height: 300rpx;
+  border-radius: 30rpx;
+  line-height: 45rpx;
+  padding-left: 20rpx;
+  padding-right: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom:60rpx ;
+  font-size: 30rpx;
+  font-weight: bold; 
+}
+/* 占位字体 */
+.textarea-placeholder{
+  font-size: 30rpx;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  line-height: 45rpx;
+  color:var(--text-default-color)
+}
+
+
+/* input中的占位字符 */
+.word{
+  position: absolute;
+  font-size: 25rpx;
+  font-weight: 300;
+  bottom:25rpx;
+  right:25rpx;
+  color: var(--text-default-color);
+}
+.btn-position{
+  display: flex;
+  justify-content: center;
+}
+/* 发布按钮 */
+.post_btn {
+  position: relative;
+  width: 45%; 
+  height: 60rpx;
+  border-radius: 30rpx;
+  line-height: 60rpx;
+  text-align: center;
+  align-content: center;
+}
+
+/* 重视程度 */
 .happinessWordStyle {
   position: relative;
   color: #0000006e;
   font-weight: bold;
   font-size: 25rpx;
   left: 13%;
-  top: 25%;
+  top: 18%;
 }
 
-/* 幸福指数字体 */
-.rateWordStyle{
-  position: relative;
-  color: #000000;
-  top: 24.5rpx;
-  bottom: 30rpx;
-  text-align: center;
-  font-family: 等线;
-  font-size: 33rpx;
-  color: rgb(0, 0, 0);
-  font-weight: bl;
-}
-
-.rateWordStyle1 {
-  left: 20%;
-  
-}
-
-.rateWordStyle2 {
-  left: 47%;
-}
-
-.rateWordStyle3 {
-  left: 20%;
-  top: 50rpx;
-}
-
-.rateWordStyle4 {
-  left: 47%;
-  top: 50rpx;
-}
-
-.rateWordStyle1_iu{  
-  top: -5rpx;
-}
-
-.rateWordStyle2_iu{ 
-  top: 35rpx;
-}
-.rateWordStyle3_iu{ 
-  top: 75rpx;
-}
-.rateWordStyle4_iu{ 
-  top: 115rpx;
-}
-.rateWordStyle_iu_left1{
-  left: 4%;
-}
-.rateWordStyle_iu_left2{
-  left: 33%;
-}
-/* 星级评价 */
-
-.rateStarsStyle1 {
-  position: absolute;
-  color: #0000006e;
-  left: 23%;
-  top: 40.5%;
-}
-
-.rateStarsStyle2 {
-  position: absolute;
-  color: #0000006e;
-  left: 70%;
-  top: 40.5%;
-}
-
-.rateStarsStyle3 {
-  position: absolute;
-  color: #0000006e;
-  left: 23%;
-  top: 47.5%;
-}
-
-.rateStarsStyle4 {
-  position: absolute;
-  color: #0000006e;
-  left: 70%;
-  top: 47.5%;
-}
-
-.rateStarsStyle_iu_left1{
-  position: absolute;
-  color: #0000006e;
-  left: 23%;
-}
-
-.rateStarsStyle_iu_left2{
-  position: absolute;
-  color: #0000006e;
-  left: 70%;
-}
-
-.rateStarsStyle1_iu {
-  top: 140rpx;
-}
-
-.rateStarsStyle2_iu {
-  top: 230.5rpx;
-}
-
-.rateStarsStyle3_iu {
-  top: 321rpx;
-}
-
-.rateStarsStyle4_iu {
-  top: 411.5rpx;
-}
-
-
-
-.remarks_show_text_default {
-  position: relative;
-  color: #0000006e;
-  font-weight: bold;
-  font-size: 25rpx;
-  left: -150%;
-  top: -35%;
-}
-
-.input_box{
-  position: absolute;
-  background-color: rgb(244, 244, 244);
-  height: 60rpx;
-  border-radius: 30rpx;
-  line-height: 60rpx;
-  text-align: center;
-  align-content: flex-start;
-  font-size: 35rpx;
-  font-weight: bold;
-  top: 20rpx;
-}
-
-.salary_input_area {
-  left: 15%;
-  width: 76%;
-}
-
-.salary_input_city_area {
-  left: 15%;
-  width: 32%;
-}
-
-.salary_input_prof_area { 
-  left: 61%;
-  width: 30%;
-}
-
-.salary_input_monthMoney_area {
-  left: 15%;
-  width: 20%;
-}
-
-.salary_input_monthNum_area {
-  left: 40%;
-  width: 17%;
-}
-
-.salary_get_area {
-  left: 71%;
-  width: 20%;
-}
-
-.workHours_input_area {
-  left: 23%;
-  width: 30%;
-}
-
-.workDaysNum_input_area {
-  left: 59%;
-  width: 32%;
-}
-
-.restHours_input_area {
-  left: 23%;
-  width: 68%;
-}
-
-
-
-.sexRate_input_area {
-  position: absolute;
-  left: 23%;
-  background-color: rgb(244, 244, 244);
-  width: 68%;
-  height: 45rpx;
-  border-radius: 30rpx;
-  line-height: 45rpx;
-  text-align: center;
-  align-content: flex-start;
-  font-size: 25rpx;
-  font-weight: bold;
-  top: 16rpx;
-}
-
-.remarks_input_area_input {
-  position: absolute;
-  left: 4%;
-  background-color: rgb(244, 244, 244);
-  width: 87%;
-  height: 260rpx;
-  border-radius: 30rpx;
-  line-height: 45rpx;
-  text-align: center;
-  align-content: flex-start;
-  font-size: 25rpx;
-  font-weight: bold;
-  top: 25rpx;
-}
-
+/* 分享求职经验 */
 .experience_input_area_input {
   position: absolute;
   left: 4%;
   background-color: rgb(244, 244, 244);
   width: 87%;
   height: 300rpx;
-  border-radius: 30rpx;
-  line-height: 45rpx;
-  text-align: center;
-  align-content: flex-start;
-  font-size: 25rpx;
-  font-weight: bold;
-  top: 16rpx;
-}
-
-
-
-
-.remarks_input_area_view {
-  position: absolute;
-  left: 55%;
-  background-color: rgb(244, 244, 244);
-  width: 32%;
-  height: 45rpx;
   border-radius: 30rpx;
   line-height: 45rpx;
   text-align: center;
@@ -614,23 +526,34 @@ left: 64%;
 }
 
 
-
-
-
-
-
-.selectChara {
+/* 选择学历图标*/
+.selectIcon {
   position: absolute;
-  color: rgb(182, 182, 182);
-  font-size: 25px;
-  left: 80%;
-  top: -15rpx;
+  right: 50rpx;
+  align-items: right;
+  color:var(--text-default-color);
 }
-
+/* 选择其他图标 */
 .selectsexRate {
   position: absolute;
-  color: rgb(182, 182, 182);
-  font-size: 25px;
-  left: 90%;
-  top: -15rpx;
+  color: var(--text-default-color);
+  display: flex;
+  align-items: right;
+  right: 50rpx;
+  
+}
+
+.intro {
+  margin: 30px;
+  text-align: center;
+}
+
+.cov-view{
+  position: absolute;
+  margin-top: 10%;
+  margin-right: 0%;
+  height: 100rpx;
+  width: 600rpx;
+  background-color:#585858bb;
+  
 }

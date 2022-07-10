@@ -4,23 +4,25 @@ Page({
   data: {
     item: 0,
     tab: 0,
-    
-    starSize:'33rpx',
+    // 星级评价
+    starSize:'38rpx',
     starIcon:'like',
     starVoidIcon:'like-o',
     starColor:'#ffd21e',
-    starGutter: '3rpx',
+    starGutter: '4rpx',
+    starCount: 4,
     
-    current: 'tab1',
-    schoolBtn: 1,
-    societyBtn: 0,
-    internBtn: 0,
-    starIndex1: 1,
-    starIndex2: 4,
-    starIndex3: 2,
-    starIndex4: 3,
-    category: [
-      ' ',
+    // 单列选择器
+    
+    showInd:false, 
+    showEdu:false,
+    shwoSex:false,
+    showSta:false, 
+    selIndustry: '', 
+    selEducation: '',
+    selSex: '',
+    selStability: '',
+    cateIndustry:[
       '销售|客服|市场',
       '财务|人力资源|行政',
       '项目|质量|高级管理',
@@ -34,21 +36,50 @@ Page({
       '服务业',
       '能源|环保|农业|科研',
       '服务业',
-      '兼职|实习|社工|其他'
+      '兼职|实习|社工|其他',
     ],
-    title: [
-      '博士985',
-      '博士211',
-      '博士其他',
-      '硕士985',
-      '硕士211',
-      '硕士其他',
-      '本科985',
-      '本科211',
-      '本科其他',
-      '大专',
-      '其它'
+    cateEducation: [
+        '博士985',
+        '博士211',
+        '博士其他',
+        '硕士985',
+        '硕士211',
+        '硕士其他',
+        '本科985',
+        '本科211',
+        '本科其他',
+        '大专',
+        '其它'
+      ],
+    cateSex: [
+     '男生占绝大部分',
+     '男生占大半部分',
+     '一半一半',
+     '女生占大部分',
+     '女生占绝大部分'
+
     ],
+    cateStability: [
+      '10%',
+      '20%',
+      '30%',
+      '40%',
+      '50%'
+    ],
+      
+    current: 'tab1',
+    schoolBtn: 1,
+    societyBtn: 0,
+    internBtn: 0,
+    starIndex1: 1,
+    starIndex2: 4,
+    starIndex3: 2,
+    starIndex4: 3,
+
+    titles:['校招','实习','社招'],
+    
+    
+    
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -70,6 +101,10 @@ Page({
     isInput: false,
     toViewId: 'basic'
   },
+
+  currentIndex:0,
+  
+
   info: {
     company: '',
     position: '',
@@ -120,6 +155,10 @@ Page({
     })
   },
   onReady: function () {
+    this.indpicker = this.selectComponent("#ind-picker")
+    this.edupicker = this.selectComponent("#edu-picker")
+    this.sexpicker = this.selectComponent("#sex-picker")
+    this.stapicker = this.selectComponent("#sta-picker")
     // 页面渲染完成
   },
   onShow: function () {
@@ -200,6 +239,21 @@ Page({
       internBtn: 1
     });
   },
+  
+// 类型单选按钮
+catchButton:function(e){
+  var that = this;
+  if (this.data.currentIndex === e.currentTarget.id) {
+    return false;
+  } else {
+    that.setData({
+      currentIndex: e.currentTarget.id
+    })
+  }
+},
+ 
+
+
   onFocus: function () {
     this.setData({
       isInput: true,
@@ -217,6 +271,7 @@ Page({
       cateIndex: e.detail.value
     });
   },
+
   changeTitle: function (e) {
     this.setData({
       titleIndex: e.detail.value
@@ -305,6 +360,97 @@ Page({
       }
     })
   },
+  
+  btn:function(){
+    this.setData({show:true})
+  },
+  
+  onLoad: function () {
+    that = this
+  },
+  // 行业选择器
+  onCloseInd(){
+    this.indpicker.hidePicker()
+},
+  onConfirmInd(e){
+    const session = e.detail
+    
+    this.setData({
+        selIndustry:session
+    })
+    this.indpicker.hidePicker()
+},
+
+  
+  showPickerInd(){
+    this.setData({showInd:true})
+    
+  },
+  // 学历选择器
+  onCloseEdu(){
+    this.edupicker.hidePicker()
+},
+  onConfirmEdu(e){
+    const session = e.detail
+    
+    this.setData({
+        selEducation:session
+    })
+    this.edupicker.hidePicker()
+},
+
+  
+  showPickerEdu(){
+    this.setData({showEdu:true})
+    
+  },
+
+  // 男女比例
+  onCloseSex(){
+    this.sexpicker.hidePicker()
+},
+  onConfirmSex(e){
+    const session = e.detail
+    
+    this.setData({
+        selSex:session
+    })
+    this.sexpicker.hidePicker()
+},
+  showPickerSex(){
+    this.setData({showSex:true})
+  },
+
+  // 裁员情况
+  onCloseSta(){
+    this.stapicker.hidePicker()
+},
+  onConfirmSta(e){
+    const session = e.detail
+    
+    this.setData({
+        selStability:session
+    })
+    this.stapicker.hidePicker()
+},
+  showPickerSta(){
+    this.setData({showSta:true})
+  },
+
+  // 获取输入框的值
+  getDataBindTap: function(e) {
+    var information = e.detail.value;//输入的内容
+    var value = e.detail.value.length;//输入内容的长度
+    var lastArea = 200 - value;//剩余字数
+    var that = this;
+      that.setData({
+            information: information,
+            lastArea: lastArea
+      })
+  },
+  
+  
+
 })
 
 

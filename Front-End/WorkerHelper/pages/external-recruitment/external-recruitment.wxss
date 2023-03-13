@@ -1,0 +1,110 @@
+/* 社招页面 */
+page{
+    --default-color:rgb(170, 170, 170);
+    --external-color:rgb(64, 124, 183)
+}
+/* 背景设置 */
+.job-container{
+    height: 100%;
+    background-color: var(--background-color);
+    padding-top: 1rpx;
+  }
+  
+  /* 卡片设置 */
+  .job-card{
+    box-sizing: border-box;
+    height:200rpx;
+    margin: 16rpx 20rpx 0;
+    padding: 20rpx 30rpx;
+    border-radius:20rpx ;
+    background-color: white;
+  }
+  /* 卡片第一行 */
+  .company_box{
+    
+    display: flex;
+    justify-content: space-between;
+    height: 54rpx;
+    line-height: 54rpx;
+    
+    
+  }
+  
+  .company{
+    font-size: 40rpx;
+    font-weight: 700;
+  }
+  
+  .salary{
+    font-size: 36rpx;
+    color:var(--external-color)
+  }
+  /* 卡片第二行 */
+  .job-box{
+    position: relative;
+    height: 54rpx;
+    line-height: 54rpx;
+    font-size: 34rpx;
+  }
+  .jobname{
+    display: inline-block;
+    height: 54rpx;
+    line-height: 54rpx;
+  }
+  .capsule_style{
+    margin:6rpx 0rpx 6rpx 50rpx;
+   font-size: 30rpx;
+   display: inline-block;
+   text-align: center;
+   height: 40rpx;
+   line-height: 40rpx;
+   border-radius:20rpx ;
+   border: 1px solid var(--external-color);
+   width: 90rpx;
+   color: var(--external-color);
+  }
+  .happiness_text{
+  
+    position: absolute; 
+    right: 50rpx; 
+  
+  }
+  .happiness_text2{
+  
+    position: absolute; 
+    right: 0;
+    color:var(--external-color) ;
+    font-size:38rpx
+  
+  }
+  /* 卡片第三行 */
+  .extra_info{
+    position: relative;
+    height: 54rpx;
+    line-height: 54rpx;
+    font-size: 26rpx;
+    color:var(--default-color);
+    
+  }
+  
+  .time{
+    position: absolute;
+    right: 68rpx;
+  }
+  
+  van-icon{
+    position: relative;
+    display: inline-block;
+    top:3rpx;
+    margin-right:2rpx ;
+  }
+  
+  .city{
+    margin-right: 24rpx;
+  }
+  .jump-icon{
+    position: absolute;
+    right: 0;
+    top:12rpx
+    
+  }

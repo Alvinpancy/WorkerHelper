@@ -1,18 +1,16 @@
-<!-- 校招页面 -->
+<!-- 社招页面 -->
 <page-meta page-style="overflow: hidden;" />
 <i-sortbar sortList="{{sortList}}"></i-sortbar>  
-
-<view style="background-color:var(--background-color);height: 16rpx;"></view>
 <!-- 显示区域 -->
 <scroll-view scroll-y="true" class="job-container">
-    <view class="job-card" wx:for="{{campusList}}">
+    <view class="job-card" wx:for="{{externalList}}">
         <view class="company_box">
             <text class="company">{{item.company}}</text>
             <text class="salary">{{item.salary}}薪</text>
         </view>
         <view class="job-box">
             <text class="jobname">{{item.job}}</text>
-            <text class="capsule_style" wx:if="{{item.internship==0}}">实习</text>
+            <text class="capsule_style">{{item.workYears}}年</text>
             <text class="happiness_text">IU指数:</text>
             <text class="happiness_text2">{{item.happiness}}</text>
 
@@ -28,5 +26,3 @@
     </view>
 
 </scroll-view>
-
-

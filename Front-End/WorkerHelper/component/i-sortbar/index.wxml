@@ -1,0 +1,38 @@
+<view style ="position:relative;height: 120rpx;background-color: white;z-index: 9999;"></view>
+<view class="swiper-tab">
+
+    <view wx:for="{{sortList}}" wx:key="item" data-current="{{index}}" bindtap="swichNav" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}">
+    {{item}} <van-icon name="descending" size="32rpx" custom-class="descending"/>
+    </view>
+    <view class="swiper-tab-list on" bindtap="showPopup">筛选 
+    <van-icon name="arrow-down" custom-class="descending" wx:if="{{!showPopup}}"/>
+    <van-icon name="arrow-up" custom-class="descending" wx:else/>
+    </view>  
+
+
+</view>
+<!-- 筛选弹出层 -->
+<view class="popup {{showPopup?'show':'hide'}}"></view>
+<view class="content {{showPopup?'slidown':'slidup'}}">
+    <view>招聘方式</view>
+    <van-row>
+        <button class="{{curRecruitment==0?'selected':''}}" bindtap="swichRecruit" data-id="0">不限</button>
+        <button class="{{curRecruitment==1?'selected':''}}" bindtap="swichRecruit" data-id="1">校招</button>
+        <button class="{{curRecruitment==2?'selected':''}}" bindtap="swichRecruit" data-id="2">实习</button>
+    </van-row>
+    <view>学历</view>
+    <van-row>
+        <button  wx:for="{{qualificationList}}" wx:key="item" data-id="{{index}}" bindtap="swichQualification" class="{{curQualification==index ? 'selected' : ''}}">{{item}}</button>
+    </van-row>
+    <view>行业</view>
+    <van-row>
+        <button wx:for="{{industryList}}" wx:key="item" data-id="{{index}}" bindtap="swichIndustry" class="{{curIndustry==index ? 'selected' : ''}}">{{item}}</button>
+    </van-row>
+    <view class="footer"> 
+        <button bindtap="resetOptions">重置</button>
+        <button>查看{{resultNums}}条结果</button>
+    </view>
+</view>
+
+
+    

@@ -1,0 +1,148 @@
+/* component/i-sortbar.wxss */
+page{
+    --default-color:rgb(170, 170, 170);
+    --salary-color:#E00707
+  }
+/* 标签页 */
+.swiper-tab{    
+  position: relative;
+  
+    padding:0 50rpx;  
+    background-color: white;
+    line-height: 80rpx;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1111;
+    
+  }  
+  .swiper-tab-list{  
+    font-size: 30rpx;
+    color:var(--default-color) ;  
+    display: inline-flex; 
+    align-items: center;  
+  }  
+  .on{
+    color:black;
+    font-weight:500 ;
+   } 
+
+  .descending{
+     margin-left: 8rpx;
+   }
+/* 遮罩层 */
+  .popup{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+  .hide{
+    display: none;
+    animation: hide 0.3s;
+  }
+  .show{
+    display: block;
+    animation: show 0.3s ease-in;
+
+  }
+/* 内容区域 */
+  .content{
+    box-sizing: border-box;
+    padding: 10rpx 50rpx 30rpx;
+    background-color: white;
+    border-radius:0 0 20rpx 20rpx;
+
+    width: 100%;
+    z-index: 1000;
+  }
+  .slidown {
+    position: absolute;
+    display: block;
+    animation: slidown 0.3s ease-in both;
+  }
+  .slidup {
+    display: none;
+    animation: slidup 0.3s ease-in both;
+  }
+  /* 遮罩层显示隐藏 */
+  @keyframes show{
+    from{
+      opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+  }
+  @keyframes hide{
+    from{
+      opacity: 1;
+    }
+    to{
+      opacity: 0;
+    }
+  }
+    /*筛选项隐藏 显示动画 start*/
+  @keyframes slidown {
+    from {
+      /* height: 0; */
+      transform: translateY(-100%);
+    }
+
+    to {
+      /* height: 400rpx; */
+      transform: translateY(0%);
+    }
+  }
+  @keyframes slidup{
+    from {
+      transform: translateY(0%);
+    }
+
+    to {
+      transform: translateY(-100%);
+    }
+  }
+  .content view{
+    font-size: 30rpx;
+    margin-bottom: 5rpx;
+  }
+  /* 按钮 */
+  .content button{
+    display: inline-block;
+    margin-right: 20rpx;
+    margin-bottom: 5rpx;
+    background-color: rgb(244, 244, 244);
+    color:rgb(164, 164, 164);
+    width: 195rpx;
+    height: 60rpx;
+    font-size: 28rpx;
+    border: none;
+    border-radius: 30rpx;
+    border-color: black;
+    line-height: 60rpx;
+    text-align: center;
+    align-content: center;
+  }
+  .selected{
+    background-color: black !important;
+    color: white !important;
+  }
+  .footer{
+    margin-top:30rpx;
+  }
+  .footer button:first-child{
+    margin-right: 0;
+    width: 310rpx;
+    border-radius: 30rpx 0rpx 0rpx 30rpx;
+    border:1px solid rgb(164, 164, 164);
+    background-color: white;
+  }
+  .footer button:last-child{
+    width: 310rpx;
+    color: white;
+    border-radius: 0rpx 30rpx 30rpx 0rpx;
+    border:1px solid black;
+    background-color:black;
+  }
+ 

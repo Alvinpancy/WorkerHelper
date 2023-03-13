@@ -16,8 +16,8 @@ page{
   --box-radius:36rpx;
   --box-margin-top:10rpx;
   --box-background-color:rgb(244, 244, 244);
-
-  --text-default-color: #0000006e;
+   
+  --background-color:rgb(244, 244, 244)
 
 }
 

@@ -1,0 +1,58 @@
+<!--pages/campusInfo/campusInfo.wxml-->
+<view class="info_container">
+    <view class="info_card">
+        <view class="info_card_item">
+            <text class="company_text">公司</text>
+            <text class="content_text">华为</text>
+            <van-icon name="play" />
+        </view>
+        <view class="info_card_item">
+            <text class="company_text">岗位</text>
+            <text class="content_text">前端开发师</text>
+            <van-icon name="play" />
+        </view>
+        <view class="info_card_item">
+            <text class="company_text">行业</text>
+            <text class="content_text">互联网</text>
+            <van-icon name="play" />
+        </view>
+        <view class="info_card_item">
+            <text class="company_text">地点</text>
+            <text class="content_text">上海</text>
+            <van-icon name="play" />
+        </view>
+        <view  class="info_card_item">
+            <text class="company_text">薪资</text>
+            <text class="content_text2">9K*13</text>
+        </view>
+        <view class="info_card_item degree_box">
+            <text class="company_text">学历</text>
+            <text class="content_text degree_text">本科985</text>
+        </view>
+        <view class="info_card_item iu_index">
+            <text class="company_text">iu指数：</text>
+            <text class="content_text2 degree_text">85</text>
+        </view>
+        备注信息
+        <view class="info_card_item remark_box">
+        </view>
+        <view class="icon_box">
+            <text>1天前</text>
+            <view class="like_box">
+            <van-icon name="good-job-o" />
+            <text>33</text>
+            <van-icon name="good-job-o" />
+            <text>0</text>
+            <van-icon name="warn-o" />
+            </view>
+        </view>   
+    </view>
+</view>
+<view class="comments_area">
+    <van-icon name="manager-o" />
+    <van-icon name="good-job-o" />
+    <van-icon name="bookmark-o" />
+    <van-icon name="replay" />
+
+</view>
+

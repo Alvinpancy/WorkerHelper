@@ -1,0 +1,7 @@
+<!--component/i-dropdown/index.wxml-->
+<!-- <van-popup show="{{ show }}" bind:close="onClose" position="top" custom-style="height: 20%;margin-top:200rpx" overlay-style="margin-top:200rpx" catch:touchstart>
+内容
+</van-popup> -->
+<view class="popup">
+    <view class="content"></view>
+</view>

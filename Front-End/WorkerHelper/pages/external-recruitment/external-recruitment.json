@@ -1,5 +1,4 @@
-{
-  "usingComponents": {
+{"usingComponents": {
     "i-sortbar": "../../component/i-sortbar/index"
     
   },

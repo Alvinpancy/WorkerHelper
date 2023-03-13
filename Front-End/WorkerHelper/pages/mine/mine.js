@@ -170,6 +170,7 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+
   onChange1(e) {
     const index = e.detail.index;
     this.setData({

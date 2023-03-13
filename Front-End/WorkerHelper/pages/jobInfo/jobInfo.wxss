@@ -1,57 +1,140 @@
-/**index.wxss**/
-/*page{
-  width: 100%;
-  height: 100%;
+page{
+  --default-color:rgb(170, 170, 170);
+  --salary-color:#E00707
 }
-*/
-.container{
-  width: 100%;
-  height: 100%;
-}
-.nav {
-  height: 80rpx;
-  width: 90%;
-  box-sizing: border-box;
-  overflow: hidden;
+
+/* 标签页 */
+.swiper-tab{    
+  padding:0 50rpx;  
   line-height: 80rpx;
-  background: #f7f7f7;
-  font-size: 16px;
-  white-space: nowrap;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  border-radius: 15px;
-  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+}  
+.swiper-tab-list{  
+  font-size: 30rpx;
+  color:var(--default-color) ;  
+  display: inline-block;  
+    
+}  
+.on{
+ color:black;
+ font-weight:500 ;
+}   
+.swiper-box{ 
+display: block; 
+height: 100%; 
+width: 100%; 
+overflow: hidden;
+}   
+.swiper-items{
+height: 100%;
 }
-.nav-item {
-  width: 30%;
-  display: inline-block;
-  text-align: center;
-}
-.nav-item.active{
-  color: rgb(136, 158, 76);
-}
-.tab-box{
-  background: rgb(255, 255, 255);
-  padding-top: 80rpx;
-  height: 180%;
-  margin-left: -5%;
-  margin-right: -5%;
-  box-sizing: border-box;
-  border-radius: 20px;
+.scroll-views{
+height: 100%;
 }
 
-.tab-content{
-  overflow-y: scroll;
-  border-radius: 20px;
-  display:flex;
-  justify-content: center;
-}
-
-.banner-box{
-  width: 90%;
+/* 背景设置 */
+.job-container{
   height: 100%;
-  background: rgb(19, 19, 19);
-  border-radius: 20px;
+  background-color: var(--background-color);
+  padding-top: 1rpx;
+}
+
+/* 卡片设置 */
+.job-card{
+  box-sizing: border-box;
+  height:200rpx;
+  margin: 0 20rpx 16rpx;
+  padding: 20rpx 30rpx;
+  border-radius:20rpx ;
+  background-color: white;
+}
+/* 卡片第一行 */
+.company_box{
+  
+  display: flex;
+  justify-content: space-between;
+  height: 54rpx;
+  line-height: 54rpx;
+  
+  
+}
+
+.company{
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.salary{
+  font-size: 36rpx;
+  color:var(--salary-color)
+}
+/* 卡片第二行 */
+.job-box{
+  position: relative;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size: 34rpx;
+}
+.jobname{
+  display: inline-block;
+  height: 54rpx;
+  line-height: 54rpx;
+}
+.capsule_style{
+  margin:6rpx 0rpx 6rpx 50rpx;
+ font-size: 30rpx;
+ display: inline-block;
+ text-align: center;
+ height: 40rpx;
+ line-height: 40rpx;
+ border-radius:20rpx ;
+ border: 1px solid var(--default-color);
+ width: 90rpx;
+ color: var(--default-color);
+}
+.happiness_text{
+
+  position: absolute; 
+  right: 50rpx; 
+
+}
+.happiness_text2{
+
+  position: absolute; 
+  right: 0;
+  color:var(--salary-color) ;
+  font-size:38rpx
+
+}
+/* 卡片第三行 */
+.extra_info{
+  position: relative;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size: 26rpx;
+  color:var(--default-color);
+  
+}
+
+.time{
+  position: absolute;
+  right: 68rpx;
+}
+
+van-icon{
+  position: relative;
+  display: inline-block;
+  top:3rpx;
+  margin-right:2rpx ;
+}
+
+.city{
+  margin-right: 24rpx;
+}
+.jump-icon{
+  position: absolute;
+  right: 0;
+  top:12rpx
+  
 }

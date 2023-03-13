@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "i-rate": "../../dist/rate/index",
-    "i-picker":"/component/i-picker/i-picker"
+    "i-picker":"../../component/i-picker/i-picker"
     
   },
   

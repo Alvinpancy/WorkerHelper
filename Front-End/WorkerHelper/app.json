@@ -2,14 +2,16 @@
   "pages": [
     "pages/search/search",
     "pages/jobInfo/jobInfo",
+    "pages/campusInfo/campusInfo",
     "pages/post/post",
     "pages/mine/mine",
     "pages/corp/corp",
     "pages/detail/detail",
     "pages/about/about",
     "pages/ads/ads",
-    "pages/jump/jump",
+    "pages/external-recruitment/external-recruitment",
     "pages/mine-experience/experience"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,7 +43,7 @@
         "text": "搜索"
       },
       {
-        "pagePath": "pages/jump/jump",
+        "pagePath": "pages/external-recruitment/external-recruitment",
         "iconPath": "image/4.png",
         "selectedIconPath": "image/social-recuitment-active.jpg",
         "text": "社招"
@@ -61,7 +63,6 @@
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
     "van-icon": "@vant/weapp/icon/index",
-    
     "van-picker": "@vant/weapp/picker/index"
   }
   

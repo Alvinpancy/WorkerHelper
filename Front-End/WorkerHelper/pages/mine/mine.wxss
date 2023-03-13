@@ -2,9 +2,12 @@ page{
   --text-left:30rpx;
   --box-right:30rpx;
   --box-left:106rpx;
-  --box-left2:170rpx
+  --box-left2:170rpx;
+  --text-default-color: #0000006e;
 }
-
+view{
+  box-sizing: border-box;
+}
 
 
 .background {
@@ -16,27 +19,61 @@ page{
   background-color: rgba(201, 201, 201, 0.178);
   /*background-image:url(https://img2.baidu.com/it/u=813170020,3946867767&fm=26&fmt=auto);*/
 }
-
+/* 头部固定栏 */
 .uparea {
+  position: fixed;
+  top: 120rpx;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 30rpx;
+  display: flex;
+  justify-content: left;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   box-sizing: border-box;
   border-radius: 10px;
-  margin-left: 2%;
-  margin-right: 2%;
-  top: 11%;
+  z-index: 999;
+  
+}
+.user-avatar {
   position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+}
+.uparea .right-item{
+  position: relative;
+  margin-left: 50rpx;
+}
+.userInfo{
+  width: 400rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.salary_view_show {
-  display: block;
-  box-sizing: border-box;
-  background-color: rgb(255, 255, 255);
-  border-radius: px;
-  margin-left: 2%;
-  margin-right: 2%;
-  position: relative;
-  top: px
+.user-collect{
+  padding-right: 30rpx;
+  margin-top: 50rpx;
+  text-align: center;
 }
+.user-item view:first-child{
+  font-size: 34rpx;
+  color: black;
+}
+.user-item view:last-child{
+  font-size: 30rpx;
+  color: rgb(152, 152, 152);
+}
+.usernickname view{
+  float: left;
+}
+.usernickname .van-icon{
+  float: left;
+}
+
+
 
 .salary_view_show2 {
   display: block;
@@ -58,77 +95,15 @@ page{
   position: relative;
 }
 
-.user-avatar {
-  position: relative;
-  top: 30rpx;
-  left: 30rpx;
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-}
-
-.user-nickname {
-  position: relative;
-  width: 200rpx;
-  left: 20rpx;
-  bottom: 30rpx;
-  text-align: center;
-  font-size: 30rpx;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-}
-
-.user-post {
-  width: 100rpx;
-  height: 100rpx;
-  position: relative;
-  top: 90rpx;
-  left: 250rpx;
-  text-align: center;
-}
-
-.use-save {
-  width: 100rpx;
-  height: 100rpx;
-  position: relative;
-  top: 90rpx;
-  left: 350rpx;
-  text-align: center;
-}
-
-.user-followings {
-  width: 100rpx;
-  height: 100rpx;
-  position: relative;
-  top: 90rpx;
-  left: 550rpx;
-  text-align: center;
-
-}
-
-.post-number-text,
-.followers-number-text,
-.followings-number-text {
-  /* left: 20rpx; */
-  text-align: center;
-  font-size: 34rpx;
-  color: black;
-}
-
-.post-text,
-.followers-text,
-.followings-text {
-  font-size: 30rpx;
-  color: rgb(152, 152, 152);
-}
-
+/* 滚动 */
 .container {
   width: 100%;
   height: 100%;
 }
 
 .nav {
+  position: fixed;
+  top:230rpx;
   height: 80rpx;
   width: 106%;
   box-sizing: border-box;
@@ -137,7 +112,7 @@ page{
   background: #ffffff;
   font-size: 16px;
   white-space: nowrap;
-  position: fixed;
+ 
   z-index: 99;
   border-radius: 12px;
   position: relative;
@@ -162,7 +137,9 @@ page{
 }
 
 .tab-box {
-  height: 100%;
+  position: absolute;
+  top:230rpx;
+  height: 680rpx;
   margin-left: -5%;
   margin-right: -5%;
   box-sizing: border-box;
@@ -179,10 +156,19 @@ page{
 
 .banner-box {
   width: 100%;
-  height: 70%;
+  height: 700rpx;
   border-radius: 20px;
 }
-
+.salary_view_show {
+  display: block;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: px;
+  margin-left: 2%;
+  margin-right: 2%;
+  position: relative;
+  top: px
+}
 
 
 /* 类型视图 */

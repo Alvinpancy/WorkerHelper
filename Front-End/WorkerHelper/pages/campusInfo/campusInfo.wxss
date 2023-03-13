@@ -1,0 +1,81 @@
+/* pages/campusInfo/campusInfo.wxss */
+
+page{
+    --text-default-color:rgb(128, 128, 128);
+    --icon-color:rgb(128, 128, 128);
+}
+/* 背景 */
+.info_container{
+    background-color: var(--background-color);
+    height: 90%;
+}
+
+.info_card{
+    margin: 30rpx 30rpx 0;
+}
+.info_card_item{
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;
+    background-color: white;
+    box-shadow: 3rpx 3rpx 1rpx 1rpx rgb(182, 182, 182);
+
+    padding:0 30rpx ;
+    display: flex;
+    justify-content: space-between;
+    font-size:35rpx;
+    color:var(--text-default-color) 
+}
+.degree_box{
+    position: relative;
+    display: inline-block;
+    width: 270rpx;    
+}
+.iu_index{
+    position: relative;
+    display: inline-block;
+    width: 270rpx;
+    right: -30rpx;
+}
+.remark_box{
+    height: 300rpx;
+}
+
+.content_text{
+    color: black;
+    font-weight: 800;
+}
+
+.degree_text{
+    position: absolute;
+    right: 30rpx;
+}
+/* 辅助显示栏 */
+.icon_box{
+    display: flex;
+    justify-content: space-between;
+    color:var(--icon-color)
+}
+.like_box{
+    display: inline-block;
+}
+.like_box text{
+    margin-right:20rpx ;
+}
+.like_box van-icon{
+    margin-right: 5rpx;
+}
+
+
+/* 留言栏 */
+.comments_area{
+    height: 100rpx;
+    display: flex;
+    padding: 0 30rpx;
+    justify-content: space-between;
+}
+.comments_area van-icon{
+    color:var(--icon-color);
+    
+}

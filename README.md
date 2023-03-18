@@ -9,11 +9,11 @@
 iWorking不会收集用户的任何信息，这个平台的信息将由各位求职者共同维护
 
 ### 开发人员：
-PM：PP Zhang
+开发/PM：PP Zhang
 
 开发：Alvin Pan
 
-小程序开发者联系邮箱：panchyromance@gmail.com
+小程序开发者联系邮箱：panchyromance@gmail.com(Alvin Pan)
 
 
 

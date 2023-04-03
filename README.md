@@ -19,13 +19,13 @@ iWorking不会收集用户的任何信息，这个平台的信息将由各位求
 
  ![salary](https://img-blog.csdnimg.cn/ef40dfe5edfa4b0fab920fd7a67f6259.PNG?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5r2Y5om_6L-c,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-=================================================================================================================================
+=====================================================================================================
  ![happiness](https://img-blog.csdnimg.cn/62180f06d9bb420f9441cb3b00ac8d53.PNG?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5r2Y5om_6L-c,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
  
- =================================================================================================================================
+ ====================================================================================================
  ![experience](https://img-blog.csdnimg.cn/9dc38192631b47c1a4e724d485e537c6.PNG?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5r2Y5om_6L-c,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
  
- =================================================================================================================================
+ ====================================================================================================
  ![salary-down](https://img-blog.csdnimg.cn/575524b395e5492f8e8ddd2971649786.PNG?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5r2Y5om_6L-c,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 

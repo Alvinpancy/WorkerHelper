@@ -11,7 +11,7 @@ iWorking不会收集用户的任何信息，这个平台的信息将由各位求
 ### 开发人员：
 开发/Project Manager：PP Zhang
 
-开发：Alvin Pan
+开发/UI Designer：Alvin Pan
 
 小程序开发者联系邮箱：panchyromance@gmail.com(Alvin Pan)
 
